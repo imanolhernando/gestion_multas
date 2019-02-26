@@ -22,7 +22,7 @@
 
 	<main class="container">
 		<div class="jumbotron">
-		  <h1 class="display-4">Web Service API Rest DGT</h1>
+		  <h1 class="display-4">Web Service API Rest APP Gestión de multas</h1>
 		  <p class="lead">Servicio Rest con Spring 4.3.0.RELEASE</p>
 		  <p><b>Endpoint</b> http://localhost:8080/wsrest/api<p>	
 		   <p> <a href="<%=request.getContextPath() + "/swagger-ui.html#/" %>">API documentacion</a><p>		  

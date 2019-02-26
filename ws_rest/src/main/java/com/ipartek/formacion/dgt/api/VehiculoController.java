@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ipartek.formacion.daos.CocheDAO;
-import com.ipartek.formacion.pojos.Coche;
+import com.ipartek.formacion.dgt.daos.CocheDAO;
+import com.ipartek.formacion.dgt.pojos.Coche;
 
 @CrossOrigin
 @RestController

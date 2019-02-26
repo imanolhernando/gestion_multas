@@ -88,7 +88,7 @@
            
 
 <td><fmt:formatDate pattern = "MMMM" value = "${h.fecha }" /></td>
-<td><fmt:formatNumber pattern="#,##0.00" value="${h.importe }"/>€ </<td>
+<td><fmt:formatNumber pattern="#,##0.00" value="${h.importe }"/>€<td>
 <td>${h.num_multas }</<td> 
 </tr>                                                   
 </c:forEach>                  

@@ -29,11 +29,11 @@ public class SwaggerConfig {
     }
      
     private ApiInfo apiInfo() {
-        ApiInfo apiInfo = new ApiInfo("DGT",
+        ApiInfo apiInfo = new ApiInfo("APP Gestión de multas",
                                         "",
-                                        "1.0",
+                                        "1.1",
                                         "",
-                                        new Contact("Imanol Hernando", "https://github.com/ipartek/java_2018_0554/tree/imanol_dgt/dgt/WS_REST_Client_JS", "mail"),
+                                        new Contact("Imanol Hernando", "https://github.com/imanolhernando/gestion_multas", ""),
                                         "Apache License",
                                         "");
         return apiInfo;
