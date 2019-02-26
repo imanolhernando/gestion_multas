@@ -1,0 +1,41 @@
+$color-principal: rgb(6, 108, 98);
+$color-secundario: rgb(0, 166, 156);
+
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 25px;
+  margin:10px auto;
+  background-color:rgba(245, 245, 245, 1);
+  border-radius: 10px ;
+
+  img{max-width: 100%;}
+
+}
+
+
+
+.bg-principal{
+  background-color : $color-principal;
+}
+.bg-secundario{
+  background-color:$color-secundario;
+}
+.texto-principal{
+  color:$color-principal;
+}
+.texto-secundario{
+  color : $color-secundario;
+}
+
+.btn-principal {
+  color: #FFF;
+  background-color: $color-secundario;
+  border-color: $color-secundario;
+}
+.btn-principal:hover, .btn-principal:focus{
+  color: #FFF;
+  background-color: $color-principal;
+  border-color: $color-secundario;
+}
