@@ -1,10 +1,6 @@
 package com.ipartek.formacion.dgt.api.controller;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Set;
-
-import javax.validation.ConstraintViolation;
 
 import org.apache.log4j.Logger;
 import org.springframework.http.HttpStatus;
@@ -17,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ipartek.formacion.dgt.pojos.Agente;
-import com.ipartek.formacion.dgt.pojos.Coche;
 import com.ipartek.formacion.dgt.pojos.Multa;
 import com.ipartek.formacion.dgt.service.AgenteService;
 import com.ipartek.formacion.dgt.service.impl.AgenteServiceImpl;

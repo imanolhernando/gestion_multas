@@ -1,7 +1,7 @@
 package com.ipartek.formacion.dgt.service.impl;
 
 import java.sql.SQLException;
-import java.util.List;
+import java.util.ArrayList;
 
 import javax.validation.Validation;
 import javax.validation.Validator;
@@ -47,7 +47,7 @@ public class AgenteServiceImpl implements AgenteService{
 	}
 	
 	@Override
-	public List<Multa> listarMultasAgente(int idAgente) {
+	public ArrayList<Multa> listarMultasAgente(int idAgente) {
 		
 		return agenteDAO.getMultas(idAgente);
 	}
@@ -55,6 +55,7 @@ public class AgenteServiceImpl implements AgenteService{
 	@Override
 	public Boolean crear(Multa multa, Agente agente) throws SQLException{
 		boolean isCreado = false;
+		//TODO capturar mejor las excepciones con excepciones personalizadas
 		return isCreado = multaDAO.insert(multa, agente);
 		
 	}
