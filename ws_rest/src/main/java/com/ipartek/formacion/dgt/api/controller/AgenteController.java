@@ -7,10 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ipartek.formacion.dgt.pojos.Agente;
 import com.ipartek.formacion.dgt.pojos.Multa;
 import com.ipartek.formacion.dgt.service.AgenteService;
 import com.ipartek.formacion.dgt.service.impl.AgenteServiceImpl;
@@ -22,7 +24,7 @@ import io.swagger.annotations.ApiResponses;
 @CrossOrigin
 @RestController
 @RequestMapping("/api/agente/")
-@Api(tags = { "AGENTE" }, produces = "application/json", description = "Gestión de taller")
+@Api(tags = { "AGENTE" }, produces = "application/json", description = "Gestión de agente y sus multas")
 public class AgenteController {
 	// LOG
 	private final static Logger LOG = Logger.getLogger(AgenteController.class);
@@ -59,6 +61,29 @@ public class AgenteController {
 			return response;
 		}
 	
+	
+		@ApiResponses({ @ApiResponse(code = 201, message = "Creado"),
+		@ApiResponse(code = 500, message = "Error interno"),
+		@ApiResponse(code = 409, message = "Conflicto"),
+		@ApiResponse(code = 400, message = "Peticion incorrecta") })
+		@RequestMapping(value = { "{id}/multa" }, method = RequestMethod.POST)
+		public ResponseEntity crear(@RequestBody Multa multa, @PathVariable Agente agente) {
+		
+			ResponseEntity response = new ResponseEntity(HttpStatus.BAD_REQUEST);
+			boolean resul = false;
+			try {
+				resul = agenteService.crear(multa,agente);
+				if (resul == true) {
+					response = new ResponseEntity(multa, HttpStatus.CREATED);
+				}
+		
+		
+			} catch (Exception e) {
+				LOG.debug(e);
+				response = new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+			}
+			return response;
+		}
 
 	
 	
