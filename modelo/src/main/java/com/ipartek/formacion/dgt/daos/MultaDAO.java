@@ -61,7 +61,7 @@ public class MultaDAO {
 				// conseguir id generado
 				multa.setId( cs.getLong(5) );	
 				resul = true;
-				LOG.debug("coche insertado");
+				LOG.debug("multa registrada en la base de datos");
 			}
 			
 		}
