@@ -14,16 +14,16 @@ public class AgenteControllerTest {
 	@Test
 	public void test() {
 		AgenteController aController = new AgenteController();
-		ResponseEntity<Agente> response = aController.loginAgente(222, "123456");
+		ResponseEntity<Agente> response = aController.loginAgente("222", "123456");
 		
 		assertEquals(200, response.getStatusCode().value());
 		assertNotNull("Agente tiene que venir en el body", response.getBody());
 		
-		response = aController.loginAgente(-1,"");
+		response = aController.loginAgente("","");
 		assertEquals(403, response.getStatusCode().value());
 		assertNull( response.getBody());
 		
-		response = aController.loginAgente(-1,null);
+		response = aController.loginAgente(null,null);
 		assertEquals(403, response.getStatusCode().value());
 		assertNull( response.getBody());
 	}
