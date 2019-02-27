@@ -6,12 +6,15 @@ import { Error404Component } from './pages/error404/error404.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
 import { ListarMultasComponent } from './pages/listar-multas/listar-multas.component';
 
+// guards
+import { PrivadoGuard } from './guards/privado.guard';
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'principal', component: PrincipalComponent },
-  { path: 'listar-multas', component: ListarMultasComponent },
+  { path: 'principal', component: PrincipalComponent, canActivate: [PrivadoGuard]},
+  { path: 'listar-multas', component: ListarMultasComponent, canActivate: [PrivadoGuard] },
   { path: 'error-404', component: Error404Component },
-  { path: '', pathMatch: 'full', redirectTo : 'principal'  },
+  { path: '', pathMatch: 'full', redirectTo : 'login'  },
   { path: '**', pathMatch: 'full', redirectTo : '404'  }
 ];
 
