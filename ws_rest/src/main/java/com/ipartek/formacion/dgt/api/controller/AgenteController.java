@@ -31,38 +31,32 @@ public class AgenteController {
 
 	private static AgenteService agenteService;
 
-
-
-	public  AgenteController() {
+	public AgenteController() {
 		super();
 		agenteService = AgenteServiceImpl.getInstance();
 
 	}
-	
-	
-	@ApiResponses({ @ApiResponse(code = 200, message = "Listado"), 
-		@ApiResponse(code = 500, message = "Error interno"),
-		@ApiResponse(code = 404, message = "Datos no encontrados") })
-		@RequestMapping(value = { "{id}/multa" }, method = RequestMethod.GET)
-		public ResponseEntity<ArrayList<Multa>> listarMultasAgente(@PathVariable int id) {
-			ResponseEntity<ArrayList<Multa>> response = new ResponseEntity<ArrayList<Multa>>(
-					HttpStatus.INTERNAL_SERVER_ERROR);
-			ArrayList<Multa> multas = new ArrayList<Multa>();
-			try {
-				multas = (ArrayList<Multa>) agenteService.listarMultasAgente(id);
-				if (multas.size() != 0) {
-					response = new ResponseEntity<ArrayList<Multa>>(multas, HttpStatus.OK);
-				} else {
-					response = new ResponseEntity<ArrayList<Multa>>(HttpStatus.NOT_FOUND);
-				}
-			} catch (Exception e) {
-				LOG.debug(e);
+
+	@ApiResponses({ @ApiResponse(code = 200, message = "Listado"), @ApiResponse(code = 500, message = "Error interno"),
+			@ApiResponse(code = 404, message = "Datos no encontrados") })
+	@RequestMapping(value = { "{id}/multa" }, method = RequestMethod.GET)
+	public ResponseEntity<ArrayList<Multa>> listarMultasAgente(@PathVariable int id) {
+		ResponseEntity<ArrayList<Multa>> response = new ResponseEntity<ArrayList<Multa>>(
+				HttpStatus.INTERNAL_SERVER_ERROR);
+		ArrayList<Multa> multas = new ArrayList<Multa>();
+		try {
+			multas = (ArrayList<Multa>) agenteService.listarMultasAgente(id);
+			if (multas.size() != 0) {
+				response = new ResponseEntity<ArrayList<Multa>>(multas, HttpStatus.OK);
+			} else {
+				response = new ResponseEntity<ArrayList<Multa>>(HttpStatus.NOT_FOUND);
 			}
-			return response;
+		} catch (Exception e) {
+			LOG.debug(e);
 		}
-	
-	
-	
+		return response;
+	}
+
 //	{
 //		"concepto": "concepto",
 //		"importe": 0,
@@ -70,34 +64,49 @@ public class AgenteController {
 //			"id": 1
 //		}
 //	}
-		@ApiResponses({ @ApiResponse(code = 201, message = "Creado"),
-		@ApiResponse(code = 500, message = "Error interno"),
-		@ApiResponse(code = 409, message = "Conflicto"),
-		@ApiResponse(code = 400, message = "Peticion incorrecta") })
-		@RequestMapping(value = { "{id}/multa" }, method = RequestMethod.POST)
-		public ResponseEntity multar(@PathVariable long id, @RequestBody Multa multa ) {
-		 Agente agente = new Agente();
-		 agente.setId(id);
-		 
-		 
-			ResponseEntity response = new ResponseEntity(HttpStatus.BAD_REQUEST);
-			boolean resul = false;
-			try {
-				resul = agenteService.crear(multa,agente);
-				if (resul == true) {
-					response = new ResponseEntity(multa, HttpStatus.CREATED);
-				}
-		
-		
-			} catch (Exception e) {
-				LOG.debug(e);
-				response = new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+	@ApiResponses({ @ApiResponse(code = 201, message = "Creado"), @ApiResponse(code = 500, message = "Error interno"),
+			@ApiResponse(code = 409, message = "Conflicto"),
+			@ApiResponse(code = 400, message = "Peticion incorrecta") })
+	@RequestMapping(value = { "{id}/multa" }, method = RequestMethod.POST)
+	public ResponseEntity multar(@PathVariable long id, @RequestBody Multa multa) {
+		Agente agente = new Agente();
+		agente.setId(id);
+
+		ResponseEntity response = new ResponseEntity(HttpStatus.BAD_REQUEST);
+		boolean resul = false;
+		try {
+			resul = agenteService.crear(multa, agente);
+			if (resul == true) {
+				response = new ResponseEntity(multa, HttpStatus.CREATED);
 			}
-			return response;
+
+		} catch (Exception e) {
+			LOG.debug(e);
+			response = new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-
-
-
+		return response;
+	}
 	
+	
+	
+
+@RequestMapping(value = { "login/{placa}/{pass}" }, method = RequestMethod.POST)
+public ResponseEntity<Agente> loginAgente(@PathVariable int placa, @PathVariable String pass) {
+	ResponseEntity<Agente> response = new ResponseEntity<Agente>(
+			HttpStatus.INTERNAL_SERVER_ERROR);
+	Agente a = new Agente();
+	
+	try {
+		a = agenteService.conectarse(placa, pass);
+		if (a != null) {
+			response = new ResponseEntity<Agente>(a, HttpStatus.OK);
+		} else {
+			response = new ResponseEntity<Agente>(HttpStatus.NOT_FOUND);
+		}
+	} catch (Exception e) {
+		LOG.debug(e);
+	}
+	return response;
+}
 
 }

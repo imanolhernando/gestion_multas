@@ -59,6 +59,12 @@ public class AgenteServiceImpl implements AgenteService{
 		return isCreado = multaDAO.insert(multa, agente);
 		
 	}
+
+	@Override
+	public Agente conectarse(Integer placa, String pass) throws SQLException {
+		//TODO validaciones
+		return agenteDAO.login(placa, pass);
+	}
 		
 
 }

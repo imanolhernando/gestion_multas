@@ -11,5 +11,7 @@ public interface AgenteService {
 	List<Multa> listarMultasAgente(int idAgente);
 	
 	Boolean crear(Multa multa, Agente agente) throws SQLException;
+	
+	Agente conectarse(Integer placa, String pass) throws SQLException;
 
 }
