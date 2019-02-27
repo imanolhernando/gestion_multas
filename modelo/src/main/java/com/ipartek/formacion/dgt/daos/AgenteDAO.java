@@ -20,6 +20,7 @@ public class AgenteDAO {
 	private static final String SQL_ALL_MULTAS = "{call agente_getMultas(?)}";
 	private static final String SQL_ALL_MULTAS_ANULADAS = "{call agente_getMultasAnuladas(?)}";
 	private static final String SQL_LOGIN = "{call agente_login(?,?)}";
+	private static final String SQL_ALL_MULTAS_ID_AGENTE ="{call pa_getAllMultasByAgenteId(?)}";
 
 	private static final String SQL_ANIO = "SELECT DISTINCT anyo FROM v_objetivos where id_agente=? order by anyo DESC;";
 	// SELECT DISTINCT anyo FROM v_objetivos where id_agente=4;
@@ -53,6 +54,47 @@ public class AgenteDAO {
 		return registro;
 	}
 
+	
+	
+	public ArrayList<Multa> getAllMultasByAgenteId(long id) {
+		ArrayList<Multa> multas = new ArrayList<Multa>();
+		String sql = SQL_ALL_MULTAS_ID_AGENTE;
+		Multa multa = null;
+		Coche coche = null;
+		try (Connection conn = ConnectionManager.getConnection(); CallableStatement cs = conn.prepareCall(sql);) {
+			cs.setLong(1, id);
+			try (ResultSet rs = cs.executeQuery()) {
+				while (rs.next()) {
+					multa = new Multa();
+					coche = new Coche();
+
+					multa.setId(rs.getLong("id_multa"));
+					multa.setFecha(rs.getDate("fecha"));
+					multa.setHora(rs.getTime("fecha"));
+					multa.setImporte(rs.getFloat("importe"));
+					multa.setConcepto(rs.getString("concepto"));
+
+					coche.setId(rs.getLong("id_coche"));
+					coche.setMatricula(rs.getString("matricula"));
+					coche.setModelo(rs.getString("modelo"));
+					coche.setKm(rs.getInt("km"));
+
+					multa.setCoche(coche);
+					multas.add(multa);
+
+				}
+			}
+
+		} catch (Exception e) {
+			LOG.fatal("getMultas:---> " + e);
+		}
+		LOG.debug("Listado multas OK");
+		return multas;
+	}
+	
+	
+	
+	
 	// metodo para obtener id
 	public Agente getById(long id) {
 

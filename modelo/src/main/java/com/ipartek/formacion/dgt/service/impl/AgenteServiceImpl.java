@@ -1,5 +1,6 @@
 package com.ipartek.formacion.dgt.service.impl;
 
+import java.text.ParseException;
 import java.util.ArrayList;
 
 import javax.validation.Validation;
@@ -50,7 +51,7 @@ public class AgenteServiceImpl implements AgenteService{
 	@Override
 	public ArrayList<Multa> obtenerMultas(int idAgente) {
 		
-		return agenteDAO.getMultas(idAgente);
+		return agenteDAO.getAllMultasByAgenteId(idAgente);
 	}
 
 	
@@ -85,8 +86,19 @@ public class AgenteServiceImpl implements AgenteService{
 	@Override
 	public Agente existe( String numeroPlaca, String password) {
 		//TODO validaciones
-		int placa = Integer.parseInt(numeroPlaca);
-		return agenteDAO.login(placa, password);
+		int placa=-1;
+		Agente a;
+		try {
+			a = new Agente();
+			placa = Integer.parseInt(numeroPlaca);
+			
+		}catch(Exception e){
+			LOG.debug(e);
+		}
+			return agenteDAO.login(placa, password);
+		
+		
+		
 	}
 		
 
