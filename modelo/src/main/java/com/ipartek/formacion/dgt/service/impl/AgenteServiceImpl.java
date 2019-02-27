@@ -19,7 +19,8 @@ import com.ipartek.formacion.dgt.service.AgenteService;
 public class AgenteServiceImpl implements AgenteService{
 	
 	private final static Logger LOG = Logger.getLogger(AgenteServiceImpl.class);
-
+	
+	//primero Instance siempre lo devolvera
 	private static AgenteServiceImpl INSTANCE = null;
 	
 	static AgenteDAO agenteDAO;
@@ -29,7 +30,7 @@ public class AgenteServiceImpl implements AgenteService{
 	private Validator validator;
 
 	
-	
+	// constructor privado
 	private AgenteServiceImpl(AgenteDAO agenteDAO) {
 		super();
 		AgenteServiceImpl.agenteDAO = AgenteDAO.getInstance();
@@ -52,6 +53,8 @@ public class AgenteServiceImpl implements AgenteService{
 		return agenteDAO.getMultas(idAgente);
 	}
 
+	
+	//TODO cambiar a parametros necesarios no obejto 
 	@Override
 	public Boolean crear(Multa multa, Agente agente) throws SQLException{
 		boolean isCreado = false;

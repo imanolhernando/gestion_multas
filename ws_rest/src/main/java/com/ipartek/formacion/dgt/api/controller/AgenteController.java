@@ -37,7 +37,8 @@ public class AgenteController {
 
 	}
 
-	@ApiResponses({ @ApiResponse(code = 200, message = "Listado"), @ApiResponse(code = 500, message = "Error interno"),
+	@ApiResponses({ @ApiResponse(code = 200, message = "Listado"), 
+			@ApiResponse(code = 500, message = "Error interno"),
 			@ApiResponse(code = 404, message = "Datos no encontrados") })
 	@RequestMapping(value = { "{id}/multa" }, method = RequestMethod.GET)
 	public ResponseEntity<ArrayList<Multa>> listarMultasAgente(@PathVariable int id) {
@@ -64,7 +65,9 @@ public class AgenteController {
 //			"id": 1
 //		}
 //	}
-	@ApiResponses({ @ApiResponse(code = 201, message = "Creado"), @ApiResponse(code = 500, message = "Error interno"),
+	
+	@ApiResponses({ @ApiResponse(code = 201, message = "Creado"), 
+			@ApiResponse(code = 500, message = "Error interno"),
 			@ApiResponse(code = 409, message = "Conflicto"),
 			@ApiResponse(code = 400, message = "Peticion incorrecta") })
 	@RequestMapping(value = { "{id}/multa" }, method = RequestMethod.POST)
@@ -89,24 +92,26 @@ public class AgenteController {
 	
 	
 	
-
-@RequestMapping(value = { "login/{placa}/{pass}" }, method = RequestMethod.POST)
-public ResponseEntity<Agente> loginAgente(@PathVariable int placa, @PathVariable String pass) {
-	ResponseEntity<Agente> response = new ResponseEntity<Agente>(
-			HttpStatus.INTERNAL_SERVER_ERROR);
-	Agente a = new Agente();
-	
-	try {
-		a = agenteService.conectarse(placa, pass);
-		if (a != null) {
-			response = new ResponseEntity<Agente>(a, HttpStatus.OK);
-		} else {
-			response = new ResponseEntity<Agente>(HttpStatus.NOT_FOUND);
+		@ApiResponses({ @ApiResponse(code = 200, message = "OK"), 
+			@ApiResponse(code = 500, message = "Error interno"),
+			@ApiResponse(code = 403, message = "Prohibido")})
+		@RequestMapping(value = { "login/{placa}/{pass}" }, method = RequestMethod.GET)
+		public ResponseEntity<Agente> loginAgente(@PathVariable int placa, @PathVariable String pass) {
+			ResponseEntity<Agente> response = new ResponseEntity<Agente>(
+					HttpStatus.INTERNAL_SERVER_ERROR);
+			Agente a = new Agente();
+			
+			try {
+				a = agenteService.conectarse(placa, pass);
+				if (a != null) {
+					response = new ResponseEntity<Agente>(a, HttpStatus.OK);
+				} else {
+					response = new ResponseEntity<Agente>(HttpStatus.FORBIDDEN);
+				}
+			} catch (Exception e) {
+				LOG.debug(e);
+			}
+			return response;
 		}
-	} catch (Exception e) {
-		LOG.debug(e);
-	}
-	return response;
-}
 
 }
