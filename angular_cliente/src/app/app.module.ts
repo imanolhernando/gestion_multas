@@ -8,6 +8,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { Error404Component } from './pages/error404/error404.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
 import { ListarMultasComponent } from './pages/listar-multas/listar-multas.component';
+import { AlertComponent } from './components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ListarMultasComponent } from './pages/listar-multas/listar-multas.compo
     LoginComponent,
     Error404Component,
     PrincipalComponent,
-    ListarMultasComponent
+    ListarMultasComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
