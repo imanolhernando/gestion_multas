@@ -46,7 +46,7 @@ public class AgenteController {
 				HttpStatus.INTERNAL_SERVER_ERROR);
 		ArrayList<Multa> multas = new ArrayList<Multa>();
 		try {
-			multas = (ArrayList<Multa>) agenteService.listarMultasAgente(id);
+			multas = (ArrayList<Multa>) agenteService.obtenerMultas(id);
 			if (multas.size() != 0) {
 				response = new ResponseEntity<ArrayList<Multa>>(multas, HttpStatus.OK);
 			} else {
@@ -71,15 +71,18 @@ public class AgenteController {
 			@ApiResponse(code = 409, message = "Conflicto"),
 			@ApiResponse(code = 400, message = "Peticion incorrecta") })
 	@RequestMapping(value = { "{id}/multa" }, method = RequestMethod.POST)
-	public ResponseEntity multar(@PathVariable long id, @RequestBody Multa multa) {
-		Agente agente = new Agente();
-		agente.setId(id);
+	public ResponseEntity multar(@PathVariable int idAgente, @RequestBody Multa multa) {
+		
 
 		ResponseEntity response = new ResponseEntity(HttpStatus.BAD_REQUEST);
-		boolean resul = false;
+		
+		
 		try {
-			resul = agenteService.crear(multa, agente);
-			if (resul == true) {
+			long idVehiculoLong =  multa.getCoche().getId();
+			int idVehiculo = (int)idVehiculoLong;
+			
+			multa = agenteService.multar(idVehiculo, idAgente, multa.getConcepto(), multa.getImporte());
+			if (multa != null) {
 				response = new ResponseEntity(multa, HttpStatus.CREATED);
 			}
 
@@ -96,13 +99,13 @@ public class AgenteController {
 			@ApiResponse(code = 500, message = "Error interno"),
 			@ApiResponse(code = 403, message = "Prohibido")})
 		@RequestMapping(value = { "login/{placa}/{pass}" }, method = RequestMethod.GET)
-		public ResponseEntity<Agente> loginAgente(@PathVariable int placa, @PathVariable String pass) {
+		public ResponseEntity<Agente> loginAgente(@PathVariable String placa, @PathVariable String pass) {
 			ResponseEntity<Agente> response = new ResponseEntity<Agente>(
 					HttpStatus.INTERNAL_SERVER_ERROR);
 			Agente a = new Agente();
 			
 			try {
-				a = agenteService.conectarse(placa, pass);
+				a = agenteService.existe(placa, pass);
 				if (a != null) {
 					response = new ResponseEntity<Agente>(a, HttpStatus.OK);
 				} else {

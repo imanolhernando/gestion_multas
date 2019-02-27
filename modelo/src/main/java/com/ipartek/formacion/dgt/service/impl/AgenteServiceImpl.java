@@ -1,6 +1,5 @@
 package com.ipartek.formacion.dgt.service.impl;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.validation.Validation;
@@ -12,6 +11,7 @@ import org.apache.log4j.Logger;
 import com.ipartek.formacion.dgt.daos.AgenteDAO;
 import com.ipartek.formacion.dgt.daos.MultaDAO;
 import com.ipartek.formacion.dgt.pojos.Agente;
+import com.ipartek.formacion.dgt.pojos.Coche;
 import com.ipartek.formacion.dgt.pojos.Multa;
 import com.ipartek.formacion.dgt.service.AgenteService;
 
@@ -48,7 +48,7 @@ public class AgenteServiceImpl implements AgenteService{
 	}
 	
 	@Override
-	public ArrayList<Multa> listarMultasAgente(int idAgente) {
+	public ArrayList<Multa> obtenerMultas(int idAgente) {
 		
 		return agenteDAO.getMultas(idAgente);
 	}
@@ -56,17 +56,37 @@ public class AgenteServiceImpl implements AgenteService{
 	
 	//TODO cambiar a parametros necesarios no obejto 
 	@Override
-	public Boolean crear(Multa multa, Agente agente) throws SQLException{
+	public Multa multar(int idCoche, int idAgente, String concepto, float importe) throws Exception{
 		boolean isCreado = false;
-		//TODO capturar mejor las excepciones con excepciones personalizadas
-		return isCreado = multaDAO.insert(multa, agente);
+		Agente agente = new Agente();
+		Multa multa = new Multa();
+		Coche coche = new Coche();
 		
+		try {
+			coche.setId((long)idCoche);
+			agente.setId((long) idAgente); 
+			multa.setConcepto(concepto);
+			multa.setImporte(importe);
+			multa.setCoche(coche);
+		}catch(Exception e) {
+			LOG.debug(e);
+			
+		}
+		
+		
+		isCreado = multaDAO.insert(multa, agente);
+		if(isCreado==true) {
+			 return multa;
+		}else {
+			return null;
+		}
 	}
 
 	@Override
-	public Agente conectarse(Integer placa, String pass) throws SQLException {
+	public Agente existe( String numeroPlaca, String password) {
 		//TODO validaciones
-		return agenteDAO.login(placa, pass);
+		int placa = Integer.parseInt(numeroPlaca);
+		return agenteDAO.login(placa, password);
 	}
 		
 

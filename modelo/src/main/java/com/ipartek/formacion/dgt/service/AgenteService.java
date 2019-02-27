@@ -8,10 +8,31 @@ import com.ipartek.formacion.dgt.pojos.Multa;
 
 public interface AgenteService {
 	
-	List<Multa> listarMultasAgente(int idAgente);
+	/**
+	 * Todas las multas de un Agente
+	 * @param idAgente
+	 * @return listado, si no hay ninguna vacio, no null
+	 */
+	List<Multa> obtenerMultas(int idAgente);
 	
-	Boolean crear(Multa multa, Agente agente) throws SQLException;
+	/**
+	 * Multar un Vehiculo
+	 * @param idCoche
+	 * @param idAgente
+	 * @param concepto
+	 * @param importe
+	 * @return
+	 * @throws Exception si el concepto es null, el idAgente o idCoche no existen, importe < 0
+	 */
+	Multa multar( int idCoche, int idAgente, String concepto, float importe  ) throws Exception;;
 	
-	Agente conectarse(Integer placa, String pass) throws SQLException;
+	
+	/**
+	 * 	comprueba que exista el Agente en la bbdd
+	 * @param numeroPlaca
+	 * @param password
+	 * @return Agente si existe, null si no existe
+	 */
+	Agente existe( String numeroPlaca, String password);
 
 }
