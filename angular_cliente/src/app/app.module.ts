@@ -12,6 +12,8 @@ import { PrincipalComponent } from './pages/principal/principal.component';
 import { ListarMultasComponent } from './pages/listar-multas/listar-multas.component';
 import { AlertComponent } from './components/alert/alert.component';
 
+import { HttpClientModule } from '@angular/common/http'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +27,8 @@ import { AlertComponent } from './components/alert/alert.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
