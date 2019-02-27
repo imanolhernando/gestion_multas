@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: 'listar-multas', component: ListarMultasComponent, canActivate: [PrivadoGuard] },
   { path: 'error-404', component: Error404Component },
   { path: '', pathMatch: 'full', redirectTo : 'login'  },
-  { path: '**', pathMatch: 'full', redirectTo : '404'  }
+  { path: '**', pathMatch: 'full', redirectTo : 'error-404'  }
 ];
 
 @NgModule({
