@@ -70,7 +70,7 @@ public class AgenteController {
 			@ApiResponse(code = 500, message = "Error interno"),
 			@ApiResponse(code = 409, message = "Conflicto"),
 			@ApiResponse(code = 400, message = "Peticion incorrecta") })
-	@RequestMapping(value = { "{id}/multa" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "{idAgente}/multa" }, method = RequestMethod.POST)
 	public ResponseEntity multar(@PathVariable int idAgente, @RequestBody Multa multa) {
 		
 
@@ -84,7 +84,7 @@ public class AgenteController {
 			multa = agenteService.multar(idVehiculo, idAgente, multa.getConcepto(), multa.getImporte());
 			if (multa != null) {
 				response = new ResponseEntity(multa, HttpStatus.CREATED);
-			}
+			}else { response = new ResponseEntity(HttpStatus.CONFLICT);}
 
 		} catch (Exception e) {
 			LOG.debug(e);
