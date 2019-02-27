@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { Error404Component } from './components/error404/error404.component';
+import { LoginComponent } from './pages/login/login.component';
+import { Error404Component } from './pages/error404/error404.component';
 
-import { PrincipalComponent } from './components/principal/principal.component';
-import { ListarMultasComponent } from './components/listar-multas/listar-multas.component';
+import { PrincipalComponent } from './pages/principal/principal.component';
+import { ListarMultasComponent } from './pages/listar-multas/listar-multas.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
