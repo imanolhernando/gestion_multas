@@ -7,7 +7,7 @@ import { Agente } from '../model/agente';
 })
 export class AutorizacionService {
 
-  private _isLogged: boolean = false;
+  private _isLogged: boolean;
   private _agenteLogeado: Agente;
   
   public get agenteLogeado(): Agente {
@@ -28,7 +28,7 @@ export class AutorizacionService {
 
   constructor( private httpClient: HttpClient ) {
     console.trace('AutorizacionService canActivate');
-   // this.isLogged = false;
+    this.isLogged = false;
     this._agenteLogeado = new Agente();
   }
 
