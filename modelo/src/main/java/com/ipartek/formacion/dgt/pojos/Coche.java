@@ -10,7 +10,7 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Coche {
 	private Long id;
 	
-	@Size(min=6,max=10)
+	@Size(min = 6, max = 10)
 	private String matricula;
 	
 	@NotBlank

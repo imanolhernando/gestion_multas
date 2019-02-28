@@ -71,7 +71,7 @@ public class AgenteController {
 	@RequestMapping(value = { "{idAgente}/multa" }, method = RequestMethod.POST)
 	public ResponseEntity multar(@PathVariable int idAgente, @RequestBody Multa multa) {
 
-		ResponseEntity response = new ResponseEntity(HttpStatus.BAD_REQUEST);
+		ResponseEntity response = new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
 
 		try {
 			long idVehiculoLong = multa.getCoche().getId();
@@ -86,7 +86,7 @@ public class AgenteController {
 
 		} catch (Exception e) {
 			LOG.debug(e);
-			response = new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+			response = new ResponseEntity(HttpStatus.BAD_REQUEST);
 		}
 		return response;
 	}

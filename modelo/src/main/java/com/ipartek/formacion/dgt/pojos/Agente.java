@@ -1,6 +1,7 @@
 package com.ipartek.formacion.dgt.pojos;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -8,37 +9,35 @@ public class Agente {
 
 	private Long id;
 	private String apellido;
-	
+
 	@NotNull(message = "No puede estar vacio y debe ser un valor numerico")
 	private Integer placa;
-	
+
 	@NotEmpty
+	@Size(min = 3, max = 30, message = "Min 3 Max 30")
 	private String password;
 
 	private String departamento;
-	
-	
+
 	public String getDepartamento() {
 		return departamento;
 	}
-
 
 	public void setDepartamento(String departamento) {
 		this.departamento = departamento;
 	}
 
-
 	public Agente() {
 		super();
 		this.id = -1L;
-		this.apellido ="" ;
+		this.apellido = "";
 		this.placa = -1;
-		this.password="Pa$$w0rd";
-		this.departamento="departamento";
+		this.password = "Pa$$w0rd";
+		this.departamento = "departamento";
 	}
 
-
-	public Agente(Long id, String apellido, Integer placa, Integer id_departamento, String password, String departamento) {
+	public Agente(Long id, String apellido, Integer placa, Integer id_departamento, String password,
+			String departamento) {
 		this();
 		setId(id);
 		setApellido(apellido);
@@ -71,27 +70,17 @@ public class Agente {
 		this.placa = placa;
 	}
 
-
 	public String getPassword() {
 		return password;
 	}
 
-
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 
 	@Override
 	public String toString() {
 		return "Agente [id=" + id + ", apellido=" + apellido + ", placa=" + placa + ", password=" + password + "]";
 	}
 
-	
-
-
-	
-	
-	
-	
 }

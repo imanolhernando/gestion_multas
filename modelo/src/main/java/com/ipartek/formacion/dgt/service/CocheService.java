@@ -10,5 +10,5 @@ public interface CocheService {
 	 * @param matricula string matricula
 	 * @return Coche si existe
 	 */
-	Coche ObtenerCoches(String matricula);
+	Coche ObtenerCoches(String matricula) throws Exception;
 }
