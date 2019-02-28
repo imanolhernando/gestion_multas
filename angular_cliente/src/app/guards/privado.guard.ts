@@ -21,7 +21,7 @@ export class PrivadoGuard implements CanActivate {
 
     console.trace('PrivadoGuard canActivate');
 
-    if ( this.autorizacionService.estaLogeado() ){
+    if ( this.autorizacionService.isLogged ){
       console.debug(' estamos autorizados');
       return true;
 

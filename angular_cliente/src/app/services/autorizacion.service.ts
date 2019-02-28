@@ -6,7 +6,14 @@ import { Observable } from 'rxjs';
 })
 export class AutorizacionService {
 
-  private isLogged: boolean;
+  private _isLogged: boolean;
+
+  public get isLogged(): boolean {
+    return this._isLogged;
+  }
+  public set isLogged(value: boolean) {
+    this._isLogged = value;
+  }
 
   endpoint ='http://localhost:8080/wsrest/api/';
 
@@ -16,13 +23,7 @@ export class AutorizacionService {
   }
 
 
-  /**
-   * Nos dice si el usuario ha hecho login o no
-   */
-  estaLogeado(): boolean{
-    return this.isLogged;
-  }
-
+  
   /**
    * metodo para llamar al servicio rest del backoffice
    * @param usuario
@@ -31,8 +32,7 @@ export class AutorizacionService {
   loggin(usuario: string, password: string): Observable<any>{
     this.endpoint = this.endpoint + "agente/login/";
     let url = this.endpoint + usuario +"/"+ password;
-    console.trace("loggin url: " + url);
-    this.isLogged = true;
+    console.trace(`AutorizacionService loggin url: ${url}`);
     return this.httpClient.get(this.endpoint);
 
       //TODO llamar Servicio Rest
