@@ -9,7 +9,7 @@ export class AutorizacionService {
 
   private _isLogged: boolean;
   private _agenteLogeado: Agente;
-  
+
   public get agenteLogeado(): Agente {
     return this._agenteLogeado;
   }
@@ -33,23 +33,21 @@ export class AutorizacionService {
   }
 
 
-  
+
   /**
    * metodo para llamar al servicio rest del backoffice
    * @param usuario
    * @param password
    */
   loggin(usuario: string, password: string): Observable<any>{
-    this.endpoint = this.endpoint + "agente/login/";
-    let url = this.endpoint + usuario +"/"+ password;
+    let url = this.endpoint + `agente/login/${usuario}/${password}`;
     console.trace(`AutorizacionService loggin url: ${url}`);
     return this.httpClient.get(url);
 
   }
 
   getMultas(id:number=2): Observable<any>{
-    this.endpoint = this.endpoint + `/agente/${id}/multa`;
-    let url = this.endpoint;
+    let url = this.endpoint + `agente/${id}/multa`;
     console.trace(`AutorizacionService getMultas url: ${url}`);
     return this.httpClient.get(url);
 

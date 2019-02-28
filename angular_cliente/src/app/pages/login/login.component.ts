@@ -61,10 +61,10 @@ export class LoginComponent implements OnInit {
         console.warn('Json agente %o',data);
         console.info('Login correcto, tenemos permisos');
         this.autorizacionService.agenteLogeado =  new Agente( data.id, data.apellido, data.placa, data.password, data.departamento);
-       
-        this.autorizacionService.isLogged = true; 
+
+        this.autorizacionService.isLogged = true;
         this.router.navigate(['/principal']);
-        
+
       },error=>{
         console.warn('Json agente %o',error);
         this.autorizacionService.isLogged = false;
@@ -72,8 +72,8 @@ export class LoginComponent implements OnInit {
         this.alert = new Alert('No tienes permisos');
       }
     );
+}// comprobar
 
 
-  }// comprobar
 
 }
