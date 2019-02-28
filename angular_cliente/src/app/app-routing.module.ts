@@ -11,7 +11,7 @@ import { PrivadoGuard } from './guards/privado.guard';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: 'principal', component: PrincipalComponent, canActivate: [PrivadoGuard]},
+  { path: 'principal', component: PrincipalComponent},
   { path: 'listar-multas', component: ListarMultasComponent, canActivate: [PrivadoGuard] },
   { path: 'error-404', component: Error404Component },
   { path: '', pathMatch: 'full', redirectTo : 'login'  },
