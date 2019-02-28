@@ -3,16 +3,20 @@
 <main class="container-fluid">
 <div class="row">
 
-  <div class="jumbotron col-3">
-     <button class="btn btn-block btn-outline-danger">Multar</button>
-  </div>
 
-  <div class=" col-9">
-        <div class="btn-group mr-2">
-                <button type="button" class="btn btn-sm btn-outline-secondary">Activas</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Anuladas</button>
-              </div>
-      <table id="tablaMulta" class="table col-12 " >
+
+  <div class=" col-12">
+    <div class="mb-3">
+        <div class="btn-group float-left">
+          <button class="btn btn-block btn-outline-danger">Multar</button>
+        </div>
+        <div class="btn-group float-right">
+            <input  type="text" name="search-text" class="form-control" placeholder="Buscador">
+            <button class="btn btn-sm  {{(isActiva)?'btn-secondary text-white':'btn-outline-secondary'}}" (click)="cambiarEstado(true)">Activas</button>
+          <button class="btn btn-sm  {{(!isActiva)?'btn-secondary text-white':'btn-outline-secondary'}}" (click)="cambiarEstado(false)">Anuladas</button>
+        </div>
+      </div>
+      <table id="tablaMulta" class="table col-12" >
           <thead>
               <tr>
                   <th>Fecha</th>
@@ -25,19 +29,18 @@
               </tr>
           </thead>
           <tbody>
-              <tr *ngFor="let m of multas">
-                <td>{{m.fecha}}</td>
+              <tr *ngFor="let m of multas | estadoMulta : isActiva ">
+                <td>{{m.fecha_baja}}</td>
                 <td>{{m.matricula}}</td>
                 <td>{{m.importe}}</td>
                 <td>{{m.concepto}}</td>
                 <td>{{m.modelo}}</td>
                 <td>{{m.kilometraje}}</td>
-                <td><button class="btn btn-block btn-outline-warning">Anular/Activar</button></td>
+                <td><button class="btn btn-block {{(isActiva)?'btn-outline-danger':'btn-outline-warning'}}">{{(isActiva)?'Anular':'Activar'}}</button></td>
             </tr>
           </tbody>
       </table>
     </div>
 </div>
-
 </main>
 

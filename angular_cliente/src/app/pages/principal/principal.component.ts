@@ -13,10 +13,13 @@ export class PrincipalComponent implements OnInit {
 
   private agenteLogeado: Agente;
   private multas : Multa[];
+  isActiva: boolean;
 
   constructor(
     private autorizacionService: AutorizacionService,
-    private router: Router) { }
+    private router: Router) {
+      this.isActiva = true;
+     }
 
   ngOnInit() {
     this.listarMultas();
@@ -38,5 +41,10 @@ listarMultas(){
     }
   );
 }//listarMultas
+
+cambiarEstado( value: boolean){
+  this.isActiva = value;
+  console.debug('click cambiarEstado ' + this.isActiva);
+}
 
 }
