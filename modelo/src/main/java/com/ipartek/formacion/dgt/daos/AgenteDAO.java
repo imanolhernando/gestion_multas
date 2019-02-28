@@ -73,6 +73,7 @@ public class AgenteDAO {
 					multa.setHora(rs.getTime("fecha"));
 					multa.setImporte(rs.getFloat("importe"));
 					multa.setConcepto(rs.getString("concepto"));
+					multa.setFecha_baja(rs.getDate("fecha_baja"));
 
 					coche.setId(rs.getLong("id_coche"));
 					coche.setMatricula(rs.getString("matricula"));
