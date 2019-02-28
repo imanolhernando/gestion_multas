@@ -47,6 +47,14 @@ export class AutorizacionService {
 
   }
 
+  getMultas(id:number=2): Observable<any>{
+    this.endpoint = this.endpoint + `/agente/${id}/multa`;
+    let url = this.endpoint;
+    console.trace(`AutorizacionService getMultas url: ${url}`);
+    return this.httpClient.get(url);
+
+  }
+
 
   /**
    * Cierra la session del usuario llamando al backoffice

@@ -1,10 +1,43 @@
 <app-navbar></app-navbar>
-<main class="container">
-  <div class="jumbotron">
-      <h1>
-          MULTAS
-      </h1>
+<main class="container-fluid">
+<div class="row">
+
+  <div class="jumbotron col-3">
+     <button class="btn btn-block btn-outline-danger">Multar</button>
   </div>
 
+  <div class=" col-9">
+        <div class="btn-group mr-2">
+                <button type="button" class="btn btn-sm btn-outline-secondary">Activas</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Anuladas</button>
+              </div>
+      <table id="tablaMulta" class="table col-12 " >
+          <thead>
+              <tr>
+                  <th>Fecha</th>
+                  <th>Hora</th>
+                  <th>Matricula</th>
+                  <th>Importe</th>
+                  <th>Concepto</th>
+                  <th>Modelo</th>
+                  <th>Kilometros</th>
+                  <th>Accion</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr>
+                  <td>2019/01/06</td>
+                  <td>22:14</td>
+                  <td>BI0020AZ</td>
+                  <td>650.0</td>
+                  <td>Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.</td>
+                  <td>flagoneta</td>
+                  <td>47500</td>
+                  <td><button class="btn btn-block btn-outline-warning">Anular/Activar</button></td>
+              </tr>
+          </tbody>    
+      </table>
+    </div>
+</div>
 </main>
 
