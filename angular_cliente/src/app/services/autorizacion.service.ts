@@ -1,12 +1,21 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Agente } from '../model/agente';
 @Injectable({
   providedIn: 'root'
 })
 export class AutorizacionService {
 
   private _isLogged: boolean;
+  private _agenteLogeado: Agente;
+  
+  public get agenteLogeado(): Agente {
+    return this._agenteLogeado;
+  }
+  public set agenteLogeado(value: Agente) {
+    this._agenteLogeado = value;
+  }
 
   public get isLogged(): boolean {
     return this._isLogged;
@@ -19,7 +28,7 @@ export class AutorizacionService {
 
   constructor( private httpClient: HttpClient ) {
     console.trace('AutorizacionService canActivate');
-    this.isLogged = false;
+    this.isLogged = true;
   }
 
 
@@ -33,14 +42,8 @@ export class AutorizacionService {
     this.endpoint = this.endpoint + "agente/login/";
     let url = this.endpoint + usuario +"/"+ password;
     console.trace(`AutorizacionService loggin url: ${url}`);
-    return this.httpClient.get(this.endpoint);
+    return this.httpClient.get(url);
 
-      //TODO llamar Servicio Rest
-      //if ( usuario === 'admin' && password === 'admin'){
-       // this.isLogged = true;
-      //}else{
-       // this.isLogged = false;
-     // }
   }
 
 
@@ -49,7 +52,7 @@ export class AutorizacionService {
    */
   logout(){
     //TODO llamar Servicio Rest
-    this.isLogged = false;
+    this._isLogged = false;
   }
 
 

@@ -1,12 +1,9 @@
 <div class="container">
-    <div style="border:1px solid red; padding:10px;">
-        <p>Valores: {{ formulario.value | json }}</p>
-        <p>Estado:  {{ formulario.status | json }}</p>
-      </div>
 
 <form class="form-signin" method="post" action="login"  [formGroup]="formulario" (submit)="comprobar()">
+ 
 
-    <img src="assets/img/logo.png" alt="" >
+    <!--<img src="assets/img/logo.png" alt="" >-->
     <app-alert [alert]="alert"></app-alert>
        <div class="mb-1">
     <label for="placa" class="sr-only">Agente</label>
@@ -32,6 +29,11 @@
      <button class="btn btn-lg  btn-block mb-3 mt-3  btn-principal" type="submit" [disabled]="formulario.invalid">
      Acceder
      </button>
+
+     <div class="alert alert-primary">
+      <p>Valores: {{ formulario.value | json }}</p>
+      <p>Estado:  {{ formulario.status | json }}</p>
+    </div>
      </form>
 </div>
 

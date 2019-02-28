@@ -55,12 +55,14 @@ export class LoginComponent implements OnInit {
     this.autorizacionService.loggin(placa, pass).subscribe(
       data=>{
         console.warn('Json agente %o',data);
-       this.autorizacionService.isLogged = true;
         console.info('Login correcto, tenemos permisos');
+
+        this.autorizacionService.isLogged = true; 
         this.router.navigate(['/principal']);
+        
       },error=>{
         console.warn('Json agente %o',error);
-         this.autorizacionService.isLogged = false;
+        this.autorizacionService.isLogged = false;
         console.warn('No tienes permisos');
         this.alert = new Alert('No tienes permisos');
       }
