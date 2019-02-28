@@ -8,6 +8,7 @@
 <i class="far fa-address-card fa-2x"></i>
 </button>
 </ul>
+{{agenteLogeado | json}}
 </nav>
 <!-- Modal -->
 <div class="modal fade" id="perfil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -21,9 +22,9 @@
       </div>
       <div class="modal-body">
         <ul  class="col-8 list-unstyled mt-3 mb-4">
-        <li>Agente: $Agente	</li>
-        <li>Numero de placa: $Placa</li>
-        <li>Departamento: $Departamento</li>
+        <li>Agente: {{agenteLogeado.apellido}}	</li>
+        <li>Numero de placa: {{agenteLogeado.placa}}</li>
+        <li>Departamento: {{agenteLogeado.departamento}}</li>
         </ul>
       </div>
       <div class="modal-footer">
@@ -33,4 +34,6 @@
     </div>
   </div>
 </div>
+
+
 

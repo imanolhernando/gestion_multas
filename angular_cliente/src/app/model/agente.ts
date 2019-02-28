@@ -5,6 +5,15 @@ export class Agente {
     private _placa: number;
     private _password: string;
     private _departamento: string;
+
+    constructor( id:number = -1, apellido:string = "", placa:number = -1, password:string = "", departamento:string = ""){
+        this._id = id;
+        this._apellido = apellido;
+        this._placa = placa;
+        this._password = password;
+        this._id = id;
+        this._departamento = departamento;
+    }
         
     public get id(): number {
         return this._id;

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AutorizacionService } from 'src/app/services/autorizacion.service';
 import { Router } from '@angular/router';
 import { Alert } from 'src/app/model/alert';
+import { Agente } from 'src/app/model/agente';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,8 @@ export class LoginComponent implements OnInit {
   formulario: FormGroup;
   alert: Alert;
 
+  private agenteLogeado: Agente;
+
   constructor(
     private autorizacionService: AutorizacionService,
     private formBuilder: FormBuilder,
@@ -22,6 +25,7 @@ export class LoginComponent implements OnInit {
     console.trace('LoginComponent constructor');
     this.crearFormulario();
     this.alert = new Alert('');
+    this.agenteLogeado = new Agente();
   }
 
   ngOnInit() {
@@ -56,7 +60,8 @@ export class LoginComponent implements OnInit {
       data=>{
         console.warn('Json agente %o',data);
         console.info('Login correcto, tenemos permisos');
-
+        this.autorizacionService.agenteLogeado =  new Agente( data.id, data.apellido, data.placa, data.password, data.departamento);
+       
         this.autorizacionService.isLogged = true; 
         this.router.navigate(['/principal']);
         
