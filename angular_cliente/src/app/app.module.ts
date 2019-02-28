@@ -12,7 +12,8 @@ import { PrincipalComponent } from './pages/principal/principal.component';
 import { ListarMultasComponent } from './pages/listar-multas/listar-multas.component';
 import { AlertComponent } from './components/alert/alert.component';
 
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { EstadoMultaPipe } from './pipes/estado-multa.pipe'
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http'
     Error404Component,
     PrincipalComponent,
     ListarMultasComponent,
-    AlertComponent
+    AlertComponent,
+    EstadoMultaPipe
   ],
   imports: [
     BrowserModule,

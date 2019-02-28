@@ -16,7 +16,6 @@
           <thead>
               <tr>
                   <th>Fecha</th>
-                  <th>Hora</th>
                   <th>Matricula</th>
                   <th>Importe</th>
                   <th>Concepto</th>
@@ -26,20 +25,19 @@
               </tr>
           </thead>
           <tbody>
-              <tr>
-                  <td>2019/01/06</td>
-                  <td>22:14</td>
-                  <td>BI0020AZ</td>
-                  <td>650.0</td>
-                  <td>Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.</td>
-                  <td>flagoneta</td>
-                  <td>47500</td>
-                  <td><button class="btn btn-block btn-outline-warning">Anular/Activar</button></td>
-              </tr>
+              <tr *ngFor="let m of multas">
+                <td>{{m.fecha}}</td>
+                <td>{{m.matricula}}</td>
+                <td>{{m.importe}}</td>
+                <td>{{m.concepto}}</td>
+                <td>{{m.modelo}}</td>
+                <td>{{m.kilometraje}}</td>
+                <td><button class="btn btn-block btn-outline-warning">Anular/Activar</button></td>
+            </tr>
           </tbody>
       </table>
     </div>
 </div>
-{{multas | json}}
+
 </main>
 

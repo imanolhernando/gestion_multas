@@ -7,6 +7,8 @@ export class Multa {
     private _modelo: string;
     private _kilometraje: number;
     private _fecha_baja: Date;
+    private _importe : number;
+
   public get fecha_baja(): Date {
     return this._fecha_baja;
   }
@@ -21,6 +23,7 @@ export class Multa {
       modelo:string = "",
       kilometraje:number,
       fecha_baja:Date = null,
+      importe:number
       ){
       this._id = id;
       this._fecha = fecha;
@@ -29,6 +32,7 @@ export class Multa {
       this._modelo = modelo;
       this._kilometraje = kilometraje;
       this.fecha_baja = fecha_baja;
+      this.importe = importe;
   }
 
     public get id(): number {
@@ -51,7 +55,7 @@ export class Multa {
     public set matricula(value: string) {
         this._matricula = value;
     }
-    private _importe: number;
+
     public get importe(): number {
         return this._importe;
     }

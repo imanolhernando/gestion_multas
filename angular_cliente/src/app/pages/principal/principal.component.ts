@@ -12,8 +12,8 @@ import { Agente } from 'src/app/model/agente';
 export class PrincipalComponent implements OnInit {
 
   private agenteLogeado: Agente;
+  private multas : Multa[];
 
-multas:Multa[];
   constructor(
     private autorizacionService: AutorizacionService,
     private router: Router) { }
@@ -29,7 +29,9 @@ listarMultas(){
     data=>{
       console.warn('Json listarMultas %o',data);
       this.router.navigate(['/principal']);
-      return this.multas = data;
+      this.multas = data.map( f => {
+        return new Multa( f.id, f.fecha, f.coche.matricula, f.concepto, f.coche.modelo, f.coche.km, f.fecha_baja, f.importe);
+      });
 
     },error=>{
       console.warn('Json listarMultas %o',error);
