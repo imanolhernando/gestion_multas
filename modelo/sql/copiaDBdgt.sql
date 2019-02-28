@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `dgt` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `dgt`;
--- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
 -- Host: localhost    Database: dgt
 -- ------------------------------------------------------
--- Server version	8.0.12
+-- Server version	8.0.13
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -45,24 +45,6 @@ LOCK TABLES `agente` WRITE;
 INSERT INTO `agente` VALUES (1,'majonei',111,37,'123456'),(2,'jony walker',222,36,'123456'),(3,'monk',333,38,'123456'),(4,'takelberri',444,39,'123456'),(5,'tontini',555,39,'123456');
 /*!40000 ALTER TABLE `agente` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `agente_BEFORE_INSERT` BEFORE INSERT ON `agente` FOR EACH ROW BEGIN
-set new.nombre= trim(new.nombre);
-set new.password= trim(new.password);
-END */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `coche`
@@ -78,7 +60,7 @@ CREATE TABLE `coche` (
   `km` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `matricula_UNIQUE` (`matricula`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,30 +69,9 @@ CREATE TABLE `coche` (
 
 LOCK TABLES `coche` WRITE;
 /*!40000 ALTER TABLE `coche` DISABLE KEYS */;
-INSERT INTO `coche` VALUES (1,'3548MKZ','toyota yaris',500),(2,'9605EFH','fiat multipla',800),(3,'5674MBD','GTR',1800),(4,'BI0020AZ','flagoneta',47500),(6,'3521MKL','prueba trigger',20),(8,'3456','chek',0);
+INSERT INTO `coche` VALUES (1,'3548MKZ','toyota yaris',500),(2,'9605EFH','fiat multipla',800),(3,'5674MBD','GTR',1800),(4,'BI0020AZ','flagoneta',47500);
 /*!40000 ALTER TABLE `coche` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `coche_BEFORE_INSERT` BEFORE INSERT ON `coche` FOR EACH ROW BEGIN
-
-if new.km < 0 then set new.km=0;
-END if;
-set new.modelo= trim(new.modelo);
-set new.matricula= trim(new.matricula);
-END */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `departamento`
@@ -124,7 +85,7 @@ CREATE TABLE `departamento` (
   `nombre` varchar(45) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `nombre_UNIQUE` (`nombre`)
-) ENGINE=InnoDB AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,26 +94,9 @@ CREATE TABLE `departamento` (
 
 LOCK TABLES `departamento` WRITE;
 /*!40000 ALTER TABLE `departamento` DISABLE KEYS */;
-INSERT INTO `departamento` VALUES (36,'Alcoholemia'),(55,'check'),(38,'Fealdad'),(32,'hhhhh'),(33,'Ingeniería'),(35,'Mercadeo'),(39,'Oficinistas'),(34,'Producción'),(41,'pru    eba'),(40,'prueba'),(37,'Velocidad'),(31,'Ventas');
+INSERT INTO `departamento` VALUES (36,'Alcoholemia'),(38,'Fealdad'),(33,'Ingeniería'),(35,'Mercadeo'),(39,'Oficinistas'),(34,'Producción'),(37,'Velocidad'),(31,'Ventas');
 /*!40000 ALTER TABLE `departamento` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbi_departamento_trim` BEFORE INSERT ON `departamento` FOR EACH ROW BEGIN
-set new.nombre= trim(new.nombre);
-END */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `multa`
@@ -175,7 +119,7 @@ CREATE TABLE `multa` (
   KEY `fk_agente_idx` (`id_agente`),
   CONSTRAINT `fk_agente_has_multa` FOREIGN KEY (`id_agente`) REFERENCES `agente` (`id`),
   CONSTRAINT `fk_coche_has_multa` FOREIGN KEY (`id_coche`) REFERENCES `coche` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,34 +128,14 @@ CREATE TABLE `multa` (
 
 LOCK TABLES `multa` WRITE;
 /*!40000 ALTER TABLE `multa` DISABLE KEYS */;
-INSERT INTO `multa` VALUES (15,1,2,500,'arturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2019-01-01 00:10:50','2019-01-01 00:10:50','2019-01-01 00:10:50'),(16,1,2,200,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-12-19 01:11:37','2018-12-19 01:11:37',NULL),(17,1,2,200,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-11-19 02:14:17','2018-11-19 02:14:17',NULL),(18,1,2,300,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 03:14:17','2018-06-19 03:14:17',NULL),(19,1,2,400,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2017-01-19 04:14:17','2017-01-19 04:14:17',NULL),(20,2,2,100,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2016-01-19 05:14:17','2016-01-19 05:14:17',NULL),(21,2,2,200,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-03-19 06:14:17','2018-03-19 06:14:17','2018-03-23 06:14:17'),(22,2,2,300,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2019-01-11 07:14:17','2019-01-11 07:14:17',NULL),(23,2,2,400,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17',NULL),(24,3,2,50,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17','2018-09-19 18:14:17'),(25,3,2,100,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17',NULL),(26,3,2,150,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17',NULL),(27,3,2,200,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17',NULL),(28,4,2,25,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17',NULL),(29,4,2,100,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17',NULL),(30,4,2,300,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2016-12-19 19:14:17','2016-12-19 19:14:17',NULL),(31,4,2,650,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2019-01-06 22:14:17','2019-01-06 22:14:17','2019-01-08 22:14:17');
+INSERT INTO `multa` VALUES (15,1,2,500,'arturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2019-01-01 00:10:50','2019-01-19 20:42:14','2019-01-19 21:05:16'),(16,1,2,200,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-12-19 01:11:37','2018-12-19 01:11:37','2019-01-19 19:59:41'),(17,1,2,500,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-11-19 02:14:17','2018-11-19 02:14:17',NULL),(18,1,2,300,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 03:14:17','2018-06-19 03:14:17',NULL),(19,1,2,400,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2017-01-19 04:14:17','2017-01-19 04:14:17',NULL),(20,2,2,100,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2016-01-19 05:14:17','2016-01-19 05:14:17',NULL),(21,2,2,200,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-03-19 06:14:17','2018-03-19 06:14:17','2018-03-23 06:14:17'),(22,2,2,300,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2019-01-11 07:14:17','2019-01-11 07:14:17','2019-01-19 19:59:16'),(23,2,2,400,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17',NULL),(24,3,2,50,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17','2018-09-19 18:14:17'),(25,3,2,100,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17',NULL),(26,3,2,150,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17',NULL),(27,3,2,200,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17',NULL),(28,4,2,25,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17',NULL),(29,4,2,100,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17',NULL),(30,4,2,300,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2016-12-19 19:14:17','2016-12-19 19:14:17',NULL),(31,4,2,650,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2019-01-06 22:14:17','2019-01-19 21:31:12',NULL),(46,1,5,11,'1234567890asdf','2019-02-28 06:53:31','2019-02-28 06:53:31',NULL);
 /*!40000 ALTER TABLE `multa` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `tbi_multa_check` BEFORE INSERT ON `multa` FOR EACH ROW BEGIN
-
-if new.importe < 0 then set new.importe=0;
-END if;
-
-set new.concepto= trim(new.concepto);
-end */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Temporary view structure for view `v_objetivos`
 --
+
 DROP TABLE IF EXISTS `v_objetivos`;
 /*!50001 DROP VIEW IF EXISTS `v_objetivos`*/;
 SET @saved_cs_client     = @@character_set_client;
@@ -232,46 +156,6 @@ SET character_set_client = @saved_cs_client;
 --
 -- Dumping routines for database 'dgt'
 --
-/*!50003 DROP FUNCTION IF EXISTS `nombre_mes` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `nombre_mes`(numeroMes INTEGER) RETURNS varchar(50) CHARSET utf8
-    READS SQL DATA
-    DETERMINISTIC
-BEGIN
-
-DECLARE mes VARCHAR (20) DEFAULT 'NO EXISTE';
-
-CASE  numeroMes
-WHEN 1 then set MES = 'ENERO';
-WHEN 2 then set MES = 'FEBRERO';
-WHEN 3 then set MES = 'MARZO';
-WHEN 4 then set MES = 'ABRIL';
-WHEN 5 then set MES = 'MAYO';
-WHEN 6 then set MES = 'JUNIO';
-WHEN 7 then set MES = 'JULIO';
-WHEN 8 then set MES = 'AGOSTO';
-WHEN 9 then set MES = 'SEPTIEMBRE';
-WHEN 10 then set MES = 'OCTUBRE';
-WHEN 11 then set MES = 'NOVIEMBRE';
-WHEN 12 then set MES = 'DICIEMBRE';
-ELSE
-SET mes = concat(numeroMes, 'NO existe');
-end case;
-RETURN mes;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `agente_getById` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -373,9 +257,9 @@ DELIMITER ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `coche_get_matricula`(IN matri VARCHAR(10))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `coche_get_matricula`(IN matricula VARCHAR(10))
 BEGIN
-SELECT id, matricula, modelo, km FROM coche WHERE coche.matricula = matri;
+SELECT id, matricula, modelo, km FROM coche WHERE matricula =matricula;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -438,25 +322,6 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP PROCEDURE IF EXISTS `multa_objetivos` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `multa_objetivos`()
-BEGIN
-SELECT * FROM dgt.v_objetivos;
-END ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `multa_update` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -477,6 +342,25 @@ BEGIN
 UPDATE multa SET fecha_baja = CURRENT_TIMESTAMP WHERE (`id` = p_id);
 SET o_id = LAST_INSERT_ID();
 
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `pa_getAllMultasByAgenteId` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pa_getAllMultasByAgenteId`(IN  p_id LONG)
+BEGIN
+SELECT m.id AS 'id_multa', c.id AS 'id_coche',fecha, importe, concepto, matricula, modelo, km, fecha_baja FROM agente AS a, multa AS m, coche AS c WHERE a.id=m.id_agente AND m.id_coche=c.id AND a.id=p_id AND m.fecha_baja IS NULL ORDER BY m.fecha DESC;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -511,4 +395,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-01-23  9:14:47
+-- Dump completed on 2019-02-28 18:45:27
