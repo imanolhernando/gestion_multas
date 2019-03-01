@@ -69,7 +69,7 @@ export class AutorizacionService {
 
   }
 
-  getMultas(id:number=2): Observable<any>{
+  getMultas(id:number): Observable<any>{
     let url = this.endpoint + `agente/${id}/multa`;
     console.trace(`AutorizacionService getMultas url: ${url}`);
     return this.httpClient.get(url);

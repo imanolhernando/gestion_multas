@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule  } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,7 +13,8 @@ import { ListarMultasComponent } from './pages/listar-multas/listar-multas.compo
 import { AlertComponent } from './components/alert/alert.component';
 
 import { HttpClientModule } from '@angular/common/http';
-import { EstadoMultaPipe } from './pipes/estado-multa.pipe'
+import { EstadoMultaPipe } from './pipes/estado-multa.pipe';
+import { MultarComponent } from './pages/multar/multar.component'
 
 @NgModule({
   declarations: [
@@ -24,13 +25,15 @@ import { EstadoMultaPipe } from './pipes/estado-multa.pipe'
     PrincipalComponent,
     ListarMultasComponent,
     AlertComponent,
-    EstadoMultaPipe
+    EstadoMultaPipe,
+    MultarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

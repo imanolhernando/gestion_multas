@@ -14,6 +14,7 @@ export class PrincipalComponent implements OnInit {
   private agenteLogeado: Agente;
   private multas : Multa[];
   isActiva: boolean;
+  
 
   constructor(
     private autorizacionService: AutorizacionService,
