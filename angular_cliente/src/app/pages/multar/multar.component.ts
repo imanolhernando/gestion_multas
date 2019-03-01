@@ -28,6 +28,7 @@ export class MultarComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
   crearFormularioMatricula(){
@@ -48,12 +49,12 @@ export class MultarComponent implements OnInit {
     this.vehiculoService.getVehiculoByMatricula(matricula).subscribe(
       data=>{
         console.warn('Json obtenerVehiculo %o',data);
-        console.info('Login correcto, tenemos permisos');
        this.coche = data;
-       //this.router.navigate(['/multar']);
+       this.router.navigate(['/crear-multa']);
 
       },error=>{
         console.warn('Json obtenerVehiculo %o',error);
+        this.alert = new Alert('NO EXISTE');
       }
     );
   }

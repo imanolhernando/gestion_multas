@@ -1,18 +1,21 @@
 <app-navbar></app-navbar>
 
 <main class="container-fluid">
-<div class="row">
-<h2 class="col-12">BUSCAR MATRICULA</h2>
-<form class="col-12" [formGroup]="formularioBuscarMatricula" (submit)="obtenerVehiculo(formularioCrearMulta.value)">
-<input  type="text" name="buscarMatricula"  class=" form-control" placeholder="Escribe tu nombre" formControlName="matriculaBuscar">
- <button class=" btn btn-block btn-warning text-white" [disabled]="formularioBuscarMatricula.invalid">Buscar</button>
-</form>
-</div>
+  <div class="row">
+    <h2 class="col-12">BUSCAR MATRICULA</h2>
+    <app-alert [alert]="alert"></app-alert>
 
-<div class="alert alert-primary">
-        <p>Valores: {{ formularioBuscarMatricula.value | json }}</p>
-        <p>Estado:  {{ formularioBuscarMatricula.status | json }}</p>
-      </div>
+    <form class="col-12" [formGroup]="formularioBuscarMatricula" (submit)="obtenerVehiculo()">
+      <input  type="text"  formControlName="matriculaBuscar" class=" form-control" placeholder="Escribe tu nombre" >
+      <button type="submit" [disabled]="formularioBuscarMatricula.invalid" class=" btn btn-block btn-warning text-white" >Buscar</button>
+    </form>
+
+  </div>
+
+  <div class="alert alert-primary">
+          <p>Valores: {{ formularioBuscarMatricula.value | json }}</p>
+          <p>Estado:  {{ formularioBuscarMatricula.status | json }}</p>
+        </div>
 </main>
 
 
