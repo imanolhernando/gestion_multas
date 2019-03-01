@@ -49,12 +49,13 @@ public class CocheServiceImpl implements CocheService {
 		try {
 			c = new Coche();
 			c.setMatricula(matricula);
-			Set<ConstraintViolation<Coche>> violations = validator.validate(c);
-			if (violations.isEmpty()) {
-				c = cocheDAO.getMatricula(matricula);
-			} else {
-				throw new CocheException(CocheException.EXCEPTION_VIOLATIONS, violations);
-			}
+//			Set<ConstraintViolation<Coche>> violations = validator.validate(c);
+//			if (violations.isEmpty()) {
+			c = cocheDAO.getMatricula(matricula);
+//			} else {
+//				c = null;
+//				throw new CocheException(CocheException.EXCEPTION_VIOLATIONS, violations);
+//			}
 		} catch (Exception e) {
 			LOG.error(e);
 		}
