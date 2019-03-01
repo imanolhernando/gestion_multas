@@ -2,13 +2,20 @@
 
 <main class="container-fluid">
 <div class="row">
-<h2>BUSCAR MATRICULA</h2>
-
+<h2 class="col-12">BUSCAR MATRICULA</h2>
+<form class="col-12" [formGroup]="formularioBuscarMatricula" (submit)="obtenerVehiculo(formularioCrearMulta.value)">
+<input  type="text" name="buscarMatricula"  class=" form-control" placeholder="Escribe tu nombre" formControlName="matriculaBuscar">
+ <button class=" btn btn-block btn-warning text-white" [disabled]="formularioBuscarMatricula.invalid">Buscar</button>
+</form>
 </div>
+
+<div class="alert alert-primary">
+        <p>Valores: {{ formularioBuscarMatricula.value | json }}</p>
+        <p>Estado:  {{ formularioBuscarMatricula.status | json }}</p>
+      </div>
 </main>
 
 
 
-<input  type="text" name="nom"  placeholder="Escribe tu nombre"   [(ngModel)]="matriculaBuscar">
-{{matriculaBuscar}}
+
 

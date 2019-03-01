@@ -9,12 +9,13 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './pages/login/login.component';
 import { Error404Component } from './pages/error404/error404.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
-import { ListarMultasComponent } from './pages/listar-multas/listar-multas.component';
+import { CrearMultaComponent } from './pages/crear-multa/crear-multa.component';
 import { AlertComponent } from './components/alert/alert.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { EstadoMultaPipe } from './pipes/estado-multa.pipe';
-import { MultarComponent } from './pages/multar/multar.component'
+import { MultarComponent } from './pages/multar/multar.component';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { MultarComponent } from './pages/multar/multar.component'
     LoginComponent,
     Error404Component,
     PrincipalComponent,
-    ListarMultasComponent,
+    CrearMultaComponent,
     AlertComponent,
     EstadoMultaPipe,
     MultarComponent

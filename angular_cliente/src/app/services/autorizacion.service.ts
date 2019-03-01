@@ -10,6 +10,12 @@ export class AutorizacionService {
   private _isLogged: boolean;
   private storage = window.sessionStorage;
   private _agenteLogeado: Agente;
+  endpoint ='http://localhost:8080/wsrest/api/';
+
+  constructor( private httpClient: HttpClient ) {
+    console.trace('AutorizacionService canActivate');
+    this._agenteLogeado = new Agente();
+  }
 
   public get agenteLogeado(): Agente {
     return this._agenteLogeado;
@@ -32,12 +38,7 @@ export class AutorizacionService {
 
   }
 
-  endpoint ='http://localhost:8080/wsrest/api/';
 
-  constructor( private httpClient: HttpClient ) {
-    console.trace('AutorizacionService canActivate');
-    this._agenteLogeado = new Agente();
-  }
 
 
   public saveAgente( agente: any ){
@@ -75,6 +76,8 @@ export class AutorizacionService {
     return this.httpClient.get(url);
 
   }
+
+  
 
 
   /**
