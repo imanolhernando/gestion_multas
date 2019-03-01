@@ -7,13 +7,16 @@ import { Multa } from '../model/multa';
 export class EstadoMultaPipe implements PipeTransform {
 
   transform( multas: Multa[] , isActiva: boolean): Multa[] {
-    let aResul = multas.map(f=>f);
-    if ( isActiva ){
-      aResul = aResul.filter( f => f.fecha_baja === null );
-    }else{
-      aResul = aResul.filter( f => f.fecha_baja !== null );
+
+    if(multas){
+        let aResul = multas.map(f=>f);
+        if ( isActiva ){
+          aResul = aResul.filter( f => f.fecha_baja === null );
+        }else{
+          aResul = aResul.filter( f => f.fecha_baja !== null );
+        }
+        return aResul;
+      }
     }
-    return aResul;
-  }
 
 }
