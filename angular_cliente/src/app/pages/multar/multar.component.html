@@ -3,19 +3,20 @@
 <main class="container-fluid">
   <div class="row">
     <h2 class="col-12">BUSCAR MATRICULA</h2>
-    <app-alert [alert]="alert"></app-alert>
+    
 
     <form class="col-12" [formGroup]="formularioBuscarMatricula" (submit)="obtenerVehiculo()">
       <input  type="text"  formControlName="matriculaBuscar" class=" form-control" placeholder="Escribe tu nombre" >
       <button type="submit" [disabled]="formularioBuscarMatricula.invalid" class=" btn btn-block btn-warning text-white" >Buscar</button>
+      <app-alert [alert]="alert"></app-alert>
     </form>
 
   </div>
 
   <div class="alert alert-primary">
-          <p>Valores: {{ formularioBuscarMatricula.value | json }}</p>
-          <p>Estado:  {{ formularioBuscarMatricula.status | json }}</p>
-        </div>
+    <p>Valores: {{ formularioBuscarMatricula.value | json }}</p>
+    <p>Estado:  {{ formularioBuscarMatricula.status | json }}</p>
+  </div>
 </main>
 
 

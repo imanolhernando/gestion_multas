@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Coche } from 'src/app/model/coche';
+import { VehiculoService } from 'src/app/services/vehiculo.service';
 
 @Component({
   selector: 'app-listar-multas',
@@ -7,7 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrearMultaComponent implements OnInit {
 
-  constructor() { }
+  private coche: Coche;
+
+  constructor(private vehiculoService: VehiculoService) { 
+    
+  }
 
   ngOnInit() {
   }
