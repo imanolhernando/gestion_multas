@@ -8,6 +8,7 @@ import { Agente } from '../model/agente';
 export class AutorizacionService {
 
   private _isLogged: boolean;
+  private storage = window.sessionStorage;
   private _agenteLogeado: Agente;
 
   public get agenteLogeado(): Agente {
@@ -17,19 +18,41 @@ export class AutorizacionService {
     this._agenteLogeado = value;
   }
 
-  public get isLogged(): boolean {
-    return this._isLogged;
+  public isLogged(): boolean {    
+    if ( this.storage.getItem('isLogged') === "true" ){
+      return true;
+    }else{
+      return false;
+    }
+    
   }
-  public set isLogged(value: boolean) {
-    this._isLogged = value;
+  public setLogged(value: boolean) {
+    console.debug('Hacemos setter de _isLogged y guardar en sessionStorage %o', this.storage);   
+    this.storage.setItem('isLogged', 'true' ); 
+
   }
 
   endpoint ='http://localhost:8080/wsrest/api/';
 
   constructor( private httpClient: HttpClient ) {
     console.trace('AutorizacionService canActivate');
-    this.isLogged = false;
     this._agenteLogeado = new Agente();
+  }
+
+
+  public saveAgente( agente: any ){
+    this.storage.setItem('agente',  JSON.stringify(agente)); 
+  }
+
+  public getAgente(): any{
+
+    let agenteString = this.storage.getItem('agente');
+    if( agenteString ){    
+      return JSON.parse(agenteString);
+    }else{
+      return undefined;
+    }  
+
   }
 
 

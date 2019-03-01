@@ -19,6 +19,7 @@ export class PrincipalComponent implements OnInit {
     private autorizacionService: AutorizacionService,
     private router: Router) {
       this.isActiva = true;
+      this.agenteLogeado = new Agente();
      }
 
   ngOnInit() {
@@ -28,7 +29,8 @@ export class PrincipalComponent implements OnInit {
 
 listarMultas(){
   console.trace('listarMultas ');
-  this.autorizacionService.getMultas(this.autorizacionService.agenteLogeado.id).subscribe(
+  this.agenteLogeado =  this.autorizacionService.getAgente();
+  this.autorizacionService.getMultas( this.agenteLogeado.id).subscribe(
     data=>{
       console.warn('Json listarMultas %o',data);
       this.router.navigate(['/principal']);

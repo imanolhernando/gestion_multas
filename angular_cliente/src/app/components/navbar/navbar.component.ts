@@ -16,7 +16,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.agenteLogeado = this.autorizacionService.agenteLogeado;
+    this.agenteLogeado =  this.autorizacionService.getAgente();
   }
 
 }
