@@ -19,8 +19,8 @@ import io.swagger.annotations.ApiResponses;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/coche/")
-@Api(tags = { "COCHE" }, produces = "application/json", description = "Obtener coche por matricula")
+@RequestMapping("/api/vehiculo/")
+@Api(tags = { "Vehiculo" }, produces = "application/json", description = "Obtener vehiculo por matricula")
 public class CocheController {
 
 	// LOG
