@@ -101,10 +101,12 @@ public class AgenteServiceImpl implements AgenteService {
 				a = agenteDAO.login(placa, password);
 			} else {
 				LOG.debug(new AgenteException(AgenteException.EXCEPTION_VIOLATIONS, violations));
+				a = null;
 			}
 
 		} catch (NumberFormatException e) {
 			LOG.debug(new AgenteException(AgenteException.EXCEPTION_NUMBER));
+			a = null;
 
 		}
 		return a;

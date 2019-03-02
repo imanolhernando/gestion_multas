@@ -1,6 +1,41 @@
 <app-navbar></app-navbar>
 
-<main class="container-fluid">
+<main class="container-fluid  bg-light">
+  <div class="row">
+    <div class="col-12">
+        <div class="mb-3">
+        <div class="btn-group ">
+            <button [routerLink]="['/principal']" (click)="cambiarEstado(true)"class="btn btn-sm btn-outline-info2">Activas</button>
+            <button [routerLink]="['/principal']" (click)="cambiarEstado(false)" class="btn btn-sm btn-outline-info2">Anuladas</button>
+            <a [routerLink]="['/multar']" class="btn btn-block btn-outline-danger" >Multar</a>
+        </div>
+        </div>
+    </div>
+   </div>
+  <form [formGroup]="formNuevaMulta" (submit)="nuevaMulta()">
+      <app-alert [alert]="alert"></app-alert>
+    <div class="form-group">
+    <label for="matricula">Vehiculo seleccionado</label>
+    <input readonly  type="text" value="{{coche.matricula}} - {{coche.modelo}}" class="form-control" >
+    </div>
 
+    <div class="form-group">
+    <label for="importe">Importe</label>
+    <input  formControlName="importe"  type="text" placeholder="Introduce un valor numerico valido" value="${importe!=null ? importe : ''}" class="form-control" autofocus>
+    </div>
+
+
+    <div class="form-group">
+    <label for="concepto">Concepto</label>
+     <br>
+    <textarea formControlName="concepto" class="form-control" placeholder="minimo 10 caracteres maximo 255"  id="concepto"  rows="5" >${concepto!=null ? concepto : ''}</textarea>
+    </div>
+
+
+    <div  class="form-group">
+    <button type="submit" class="btn btn-principal  btn-block">MULTAR</button>
+    </div>
+
+  </form>
 
 </main>

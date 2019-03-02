@@ -1,21 +1,35 @@
 <app-navbar></app-navbar>
 
-<main class="container-fluid">
+<main class="container-fluid  bg-light">
   <div class="row">
-    <h2 class="col-12">BUSCAR MATRICULA</h2>
-    
 
-    <form class="col-12" [formGroup]="formularioBuscarMatricula" (submit)="obtenerVehiculo()">
-      <input  type="text"  formControlName="matriculaBuscar" class=" form-control" placeholder="Escribe tu nombre" >
-      <button type="submit" [disabled]="formularioBuscarMatricula.invalid" class=" btn btn-block btn-warning text-white" >Buscar</button>
+      <div class="col-12">
+      <div class="mb-3">
+      <div class="btn-group ">
+          <button [routerLink]="['/principal']" (click)="cambiarEstado(true)"class="btn btn-sm btn-outline-info2">Activas</button>
+          <button [routerLink]="['/principal']" (click)="cambiarEstado(false)" class="btn btn-sm btn-outline-info2">Anuladas</button>
+          <a class="btn btn-block btn-danger" [routerLink]="['/multar']">Multar</a>
+      </div>
+      </div>
+      </div>
+
+    <h2 class="col-12">BUSCAR MATRICULA</h2>
+   <form class="col-12 " [formGroup]="formularioBuscarMatricula" (submit)="obtenerVehiculo()">
+      <div class="form-group">
+      <label for="buscar">Introduce una matricula para multar</label>
+      <input  type="text" [(ngModel)]="process" formControlName="matriculaBuscar" class="form-control" placeholder="3548MKZ" autofocus >
+      </div>
+      <div  class="form-group">
+        <button type="submit" [disabled]="formularioBuscarMatricula.invalid" class=" btn btn-block btn-principal  text-white" >Buscar</button>
+      </div>
       <app-alert [alert]="alert"></app-alert>
     </form>
 
   </div>
 
-  <div class="alert alert-primary">
-    <p>Valores: {{ formularioBuscarMatricula.value | json }}</p>
-    <p>Estado:  {{ formularioBuscarMatricula.status | json }}</p>
+  <div *ngIf="formularioBuscarMatricula.invalid" class="alert alert-primary">
+    <p>Debe estar entre 6 y 10 caracteres.</p>
+    <p> Has introducido: {{ (!process)?'0':process.length}}</p>
   </div>
 </main>
 

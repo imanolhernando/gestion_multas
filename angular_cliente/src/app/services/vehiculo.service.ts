@@ -10,13 +10,13 @@ export class VehiculoService {
 
   private endpoint ='http://localhost:8080/wsrest/api/';
 
-  constructor(private httpClient: HttpClient) { 
+  constructor(private httpClient: HttpClient) {
     console.trace('CocheService canActivate');
   }
 
-  
+
   getVehiculoByMatricula(matricula:string): Observable<any>{
-    let url = this.endpoint + `coche/${matricula}`;
+    let url = this.endpoint + `vehiculo/${matricula}`;
     console.trace(`CocheService getCocheByMatricula url: ${url}`);
     return this.httpClient.get(url);
   }

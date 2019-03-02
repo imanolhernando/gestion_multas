@@ -1,1 +1,52 @@
 /* You can add global styles to this file, and also import other style files */
+
+$color-principal: rgb(6, 108, 98);
+$color-secundario: rgb(0, 166, 156);
+$color-fondo: rgba(245, 245, 245, 1);
+body{
+  background: $color-fondo;
+}
+
+
+
+.bg-principal{
+  background-color : $color-principal;
+}
+.bg-secundario{
+  background-color:$color-secundario;
+}
+.texto-principal{
+  color:$color-principal;
+}
+.texto-secundario{
+  color : $color-secundario;
+}
+
+.btn-principal {
+  color: #FFF;
+  background-color: $color-secundario;
+  border-color: $color-secundario;
+}
+.btn-principal:hover, .btn-principal:focus{
+  color: #FFF;
+  background-color: $color-principal;
+  border-color: $color-secundario;
+}
+
+
+
+.btn-outline-info2 {
+  color: $color-principal;
+  background-color: transparent;
+  background-image: none;
+  border-color: $color-principal;
+}
+.btn-outline-info2:hover,
+.btn-outline-info2:focus,
+.btn-outline-info2:active,
+.btn-outline-info2.active{
+  background-color: $color-secundario;
+  color: #FFF;
+  border-color: $color-principal;
+}
+

@@ -20,8 +20,9 @@ export class PrivadoGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
 
     console.trace('PrivadoGuard canActivate');
+    console.warn(this.autorizacionService.isLogged());
 
-    if ( this.autorizacionService.isLogged ){
+    if ( this.autorizacionService.isLogged()){
       console.debug(' estamos autorizados');
       return true;
 

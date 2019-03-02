@@ -53,9 +53,6 @@ export class LoginComponent implements OnInit {
     let placa = this.formulario.controls.placa.value;
     let pass = this.formulario.controls.pass.value;
     console.debug('nombre: %s password: %s',placa , pass);
-
-    //llamar servicio rest REALIZAR LA LOGICA DENTRO DE SUSCRIBE
-    //LLAMADA ASINCRONA
     this.autorizacionService.loggin(placa, pass).subscribe(
       data=>{
         console.warn('Json agente %o',data);

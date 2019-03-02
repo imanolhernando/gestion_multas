@@ -1,9 +1,9 @@
 <div class="container">
 
 <form class="form-signin"  [formGroup]="formulario" (submit)="comprobar()">
- 
 
-    <!----><img src="assets/img/logo.png" alt="" >
+
+    <!----><div class="imgn"><img src="assets/img/logo.png" alt="" ></div>
     <app-alert [alert]="alert"></app-alert>
        <div class="mb-1">
     <label for="placa" class="sr-only">Agente</label>
@@ -11,7 +11,7 @@
        <div class="input-group-prepend">
          <span class="input-group-text"><i class="texto-principal fas fa-address-book"></i></span>
        </div>
-        <input type="text" id="placa" name="placa" class="form-control" placeholder="Nº Placa: 222" formControlName="placa">
+        <input type="text" id="placa" name="placa" class="form-control" placeholder="Nº Placa: 222" formControlName="placa" autofocus>
      </div>
    </div>
 
@@ -30,11 +30,15 @@
      Acceder
      </button>
 
-     <div class="alert alert-primary">
-      <p>Valores: {{ formulario.value | json }}</p>
-      <p>Estado:  {{ formulario.status | json }}</p>
+    <div *ngIf="formulario.invalid" class="alert alert-primary">
+
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <p>Minimo 3 caracteres.</p>
     </div>
-     </form>
+
+    </form>
 </div>
 
 

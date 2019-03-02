@@ -7,6 +7,7 @@
 <li><button type="button" class="btn btn-principal btn-block" data-toggle="modal" data-target="#perfil" >
 <i class="far fa-address-card fa-2x"></i>
 </button>
+</li>
 </ul>
 </nav>
 <!-- Modal -->
@@ -28,7 +29,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-      <a href="" class="btn btn-principal btn-block ">Cerrar Sesión </a>
+      <button (click)="cerrarSesion()" data-dismiss="modal" class="btn btn-principal btn-block ">Cerrar Sesión </button>
       </div>
     </div>
   </div>

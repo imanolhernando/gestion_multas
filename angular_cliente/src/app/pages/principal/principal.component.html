@@ -1,22 +1,21 @@
 <app-navbar></app-navbar>
 
-<main class="container-fluid">
+<main class="container-fluid bg-light">
 <div class="row">
 
 
 
   <div class=" col-12">
     <div class="mb-3">
-        <div class="btn-group float-left">
+        <div class="btn-group ">
+          <button class="btn btn-sm  {{(isActiva)?'btn-principal text-white':'btn-outline-info2'}}" (click)="cambiarEstado(true)">Activas</button>
+          <button class="btn btn-sm  {{(!isActiva)?'btn-principal  text-white':'btn-outline-info2'}}" (click)="cambiarEstado(false)">Anuladas</button>
           <a class="btn btn-block btn-outline-danger" [routerLink]="['/multar']">Multar</a>
         </div>
-        <div class="btn-group float-right">
-            <input  type="text" name="search-text" class="form-control" placeholder="Buscador">
-            <button class="btn btn-sm  {{(isActiva)?'btn-secondary text-white':'btn-outline-secondary'}}" (click)="cambiarEstado(true)">Activas</button>
-          <button class="btn btn-sm  {{(!isActiva)?'btn-secondary text-white':'btn-outline-secondary'}}" (click)="cambiarEstado(false)">Anuladas</button>
-        </div>
       </div>
-      <table id="tablaMulta" class="table col-12" >
+      <p *ngIf="(multas | estadoMulta : isActiva) == 0">No existen multas {{(isActiva)?'activas':'anuladas'}}</p>
+
+      <table id="tablaMulta" class="table col-12" *ngIf="(multas | estadoMulta : isActiva) != 0">
           <thead>
               <tr>
                   <th>Fecha</th>
