@@ -98,8 +98,8 @@ export class AutorizacionService {
 
   }
 
-  postMulta(multa:MultaPost):Observable<any>{
-    let url = this.endpoint + `agente/${this.storage.id}/multa`;
+  postMulta(multa:MultaPost, id:number):Observable<any>{
+    let url = this.endpoint + `agente/${id}/multa`;
     console.trace(`AutorizacionService postMulta url: ${url} coche id ${this.coche.id}`);
     let body = {
                   "concepto": multa.concepto,
