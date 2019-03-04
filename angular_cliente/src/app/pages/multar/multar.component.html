@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <main class="container-fluid  bg-light">
-   
+
   <div class="row">
       <div class="col-12">
       <div class="mb-3">
@@ -21,17 +21,14 @@
       <label autofocus for="buscar" class="form-text text-muted"> Introduce una matricula para multar</label>
       <input  type="text" [(ngModel)]="process" formControlName="matriculaBuscar" class="form-control" placeholder="3548MKZ" autofocus >
       <small *ngIf="formularioBuscarMatricula.invalid" id="emailHelp" class="form-text text-muted">
-        Minimo 6, maximo 10 caracteres. </small>  
+        Minimo 6, maximo 10 caracteres. {{ (!process)?'0':process.length}}/10</small>
     </div>
       <div  class="form-group">
         <button type="submit" [disabled]="formularioBuscarMatricula.invalid" class=" btn btn-block btn-principal  text-white" >Buscar</button>
       </div>
-      <app-alert *ngIf="expression" [alert]="alert"></app-alert>
+      <app-alert [alert]="alert"></app-alert>
     </form>
-
-    <div *ngIf="formularioBuscarMatricula.invalid" class="col-12 alert alert-primary">
-      <span> Has introducido: {{ (!process)?'0':process.length}}</span>
-    </div></div><!--/maxwidth-->
+</div><!--/maxwidth-->
 
 
 </main>

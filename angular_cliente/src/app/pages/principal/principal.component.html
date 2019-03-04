@@ -3,7 +3,7 @@
 <main class="container-fluid bg-light">
 <div class="row">
 
-    
+
 
   <div class=" col-12">
     <div class="mb-3">
@@ -30,17 +30,20 @@
           </thead>
           <tbody>
               <tr *ngFor="let m of multas | estadoMulta : isActiva ">
-                <td>{{m.id}}</td>
-                <td *ngIf="!isActiva">{{m.fecha_baja}}</td>
+                <td>{{m.fecha | date:"dd/MM/yy"}}</td>
+                <td *ngIf="!isActiva">{{m.fecha_baja | date:"dd/MM/yy"}}</td>
                 <td>{{m.matricula}}</td>
-                <td>{{m.importe}}</td>
+                <td>{{m.importe | number:'1.1-2'}}</td>
                 <td>{{m.concepto}}</td>
                 <td>{{m.modelo}}</td>
-                <td>{{m.kilometraje}}</td>
-                <td><button (click)="alterarEstadoMulta(true,m.id)" class="btn btn-block {{(isActiva)?'btn-outline-danger':'btn-outline-warning'}}">{{(isActiva)?'Anular':'Activar'}}</button></td>
+                <td>{{m.kilometraje  | number:'1.1-2':es}}</td>
+                <td>
+                  <button *ngIf="isActiva" (click)=alterarEstadoMulta(true,m.id)  class="btn btn-block btn-outline-danger">Anular</button>
+                  <button *ngIf="!isActiva" (click)=alterarEstadoMulta(false,m.id) class="btn btn-block btn-outline-danger">Activar</button>
+                  <!--<button (click)="alterarEstadoMulta((isActiva)?true:false,m.id)" class="btn btn-block {{(isActiva)?'btn-outline-danger':'btn-outline-warning'}}">{{(isActiva)?'Anular':'Activar'}}</button></td>-->
             </tr>
           </tbody>
-      </table>S
+      </table>
     </div>
 </div>
 </main>

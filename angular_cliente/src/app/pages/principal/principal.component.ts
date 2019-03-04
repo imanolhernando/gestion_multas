@@ -17,7 +17,7 @@ export class PrincipalComponent implements OnInit {
   private multas : Multa[];
   isActiva: boolean;
   alert: Alert;
-  
+
 
   constructor(
     private autorizacionService: AutorizacionService,
@@ -41,7 +41,7 @@ listarMultas(){
     this.alert = this.autorizacionService.alert;
     this.autorizacionService.alert = new Alert("");
   }
- 
+
   this.autorizacionService.getMultas( this.agenteLogeado.id).subscribe(
     data=>{
       console.warn('Json listarMultas %o',data);
@@ -61,14 +61,25 @@ alterarEstadoMulta(value:boolean, id:number){
   if(value==true){
     this.multaService.anularMulta(id).subscribe(
       data=>{
-        console.warn('Json listarMultas %o',data);
+        console.warn('Json alterarEstadoMulta %o',data);
         this.listarMultas();
       },error=>{
-        console.warn('Json listarMultas %o',error);
+        console.warn('Json alterarEstadoMulta %o',error);
       }
     );
+  }else if(value == false){
+    this.multaService.activarMulta(id).subscribe(
+      data=>{
+        console.warn('Json alterarEstadoMulta %o',data);
+        this.listarMultas();
+      },error=>{
+        console.warn('Json alterarEstadoMulta %o',error);
+      }
+    );
+  }else{
+    this.alert= new Alert('ERRO INTERNO',Alert.DANGER);
   }
-  
+
 
 }
 

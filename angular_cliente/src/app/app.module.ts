@@ -35,7 +35,7 @@ import { MultarComponent } from './pages/multar/multar.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
