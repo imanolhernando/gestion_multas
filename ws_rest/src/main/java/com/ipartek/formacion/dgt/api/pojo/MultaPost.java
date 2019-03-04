@@ -6,8 +6,6 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
-import com.ipartek.formacion.dgt.pojos.Coche;
-
 public class MultaPost {
 
 	@NotNull(message = "Error")
@@ -17,9 +15,9 @@ public class MultaPost {
 	@NotEmpty
 	@Size(min = 10, max = 150)
 	private String concepto;
-	
+
 	@NotNull
-	private int coche;
+	private long coche;
 
 	public MultaPost() {
 		super();
@@ -51,11 +49,11 @@ public class MultaPost {
 		this.concepto = concepto;
 	}
 
-	public int getCoche() {
+	public long getCoche() {
 		return coche;
 	}
 
-	public void setCoche(int coche) {
+	public void setCoche(long coche) {
 		this.coche = coche;
 	}
 

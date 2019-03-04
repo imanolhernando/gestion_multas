@@ -64,25 +64,23 @@ public class AgenteController {
 			@ApiResponse(code = 409, message = "Conflicto"),
 			@ApiResponse(code = 400, message = "Peticion incorrecta") })
 	@RequestMapping(value = { "{idAgente}/multa" }, method = RequestMethod.POST)
-	public ResponseEntity multar(@PathVariable int idAgente, @RequestBody MultaPost multaPost) {
+	public ResponseEntity<MultaPost> multar(@PathVariable int idAgente, @RequestBody MultaPost multaPost) {
 
-		ResponseEntity response = new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+		ResponseEntity<MultaPost> response = new ResponseEntity<MultaPost>(HttpStatus.INTERNAL_SERVER_ERROR);
 
 		try {
 			long idVehiculoLong = multaPost.getCoche();
 			int idVehiculo = (int) idVehiculoLong;
 			Multa m = new Multa();			
 			m = agenteService.multar(idVehiculo, idAgente, multaPost.getConcepto(), multaPost.getImporte());
-
+			multaPost.setCoche(m.getCoche().getId());
 			if (multaPost != null) {
-				response = new ResponseEntity(multaPost, HttpStatus.CREATED);
-			} else {
-				response = new ResponseEntity(HttpStatus.CONFLICT);
-			}
+				response = new ResponseEntity<MultaPost>(multaPost, HttpStatus.CREATED);
+			} 
 
 		} catch (Exception e) {
 			LOG.debug(e);
-			response = new ResponseEntity(HttpStatus.BAD_REQUEST);
+			response = new ResponseEntity<MultaPost>(HttpStatus.BAD_REQUEST);
 		}
 		return response;
 	}
