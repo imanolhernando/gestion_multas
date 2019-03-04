@@ -26,13 +26,7 @@ public class Multa {
 	private Agente agente;  // nuevo para objetivos
 	private Date fecha_baja;
 
-	public Date getFecha_baja() {
-		return fecha_baja;
-	}
-
-	public void setFecha_baja(Date fecha_baja) {
-		this.fecha_baja = fecha_baja;
-	}
+	
 
 	public Multa() {
 		super();
@@ -58,6 +52,13 @@ public class Multa {
 		setFecha_baja(fecha_baja);
 	}
 
+	public Date getFecha_baja() {
+		return fecha_baja;
+	}
+
+	public void setFecha_baja(Date fecha_baja) {
+		this.fecha_baja = fecha_baja;
+	}
 	public Agente getAgente() {  // nuevo para objetivos
 		return agente;
 	}

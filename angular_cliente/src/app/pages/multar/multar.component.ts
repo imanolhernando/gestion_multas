@@ -27,6 +27,7 @@ export class MultarComponent implements OnInit {
     private autorizacionService: AutorizacionService) {
       this.crearFormularioMatricula();
       this.alert = new Alert('');
+      
   }
 
   ngOnInit() {

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ipartek.formacion.dgt.api.pojo.MultaPost;
 import com.ipartek.formacion.dgt.pojos.Agente;
 import com.ipartek.formacion.dgt.pojos.Multa;
 import com.ipartek.formacion.dgt.service.AgenteService;
@@ -57,29 +58,24 @@ public class AgenteController {
 		return response;
 	}
 
-//	{
-//		"concepto": "concepto",
-//		"importe": 0,
-//		"coche": {
-//			"id": 1
-//		}
-//	}
+
 
 	@ApiResponses({ @ApiResponse(code = 201, message = "Creado"), @ApiResponse(code = 500, message = "Error interno"),
 			@ApiResponse(code = 409, message = "Conflicto"),
 			@ApiResponse(code = 400, message = "Peticion incorrecta") })
 	@RequestMapping(value = { "{idAgente}/multa" }, method = RequestMethod.POST)
-	public ResponseEntity multar(@PathVariable int idAgente, @RequestBody Multa multa) {
+	public ResponseEntity multar(@PathVariable int idAgente, @RequestBody MultaPost multaPost) {
 
 		ResponseEntity response = new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
 
 		try {
-			long idVehiculoLong = multa.getCoche().getId();
+			long idVehiculoLong = multaPost.getCoche();
 			int idVehiculo = (int) idVehiculoLong;
+			Multa m = new Multa();			
+			m = agenteService.multar(idVehiculo, idAgente, multaPost.getConcepto(), multaPost.getImporte());
 
-			multa = agenteService.multar(idVehiculo, idAgente, multa.getConcepto(), multa.getImporte());
-			if (multa != null) {
-				response = new ResponseEntity(multa, HttpStatus.CREATED);
+			if (multaPost != null) {
+				response = new ResponseEntity(multaPost, HttpStatus.CREATED);
 			} else {
 				response = new ResponseEntity(HttpStatus.CONFLICT);
 			}

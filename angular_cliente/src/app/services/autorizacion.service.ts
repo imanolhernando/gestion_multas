@@ -114,9 +114,7 @@ export class AutorizacionService {
     let body = {
                   "concepto": multa.concepto,
                   "importe": multa.importe,
-                  "coche": {
-                    "id": this.coche.id
-                  }
+                  "coche":  this.coche.id
                 }
 
     const httpOptions = {
