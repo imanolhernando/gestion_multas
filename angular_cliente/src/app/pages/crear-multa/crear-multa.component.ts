@@ -62,7 +62,7 @@ export class CrearMultaComponent implements OnInit {
     this.autorizacionService.postMulta(multa, this.agenteLogeado.id).subscribe(
       result => {
         console.log('CrearMultaComponent new %o', result);
-        this.alert = new Alert('Multa creada con exito',Alert.SUCCESS);
+        this.autorizacionService.alert = new Alert('Multa creada con exito',Alert.INFO);
        this.router.navigate(['/principal']);
       },
       error => {

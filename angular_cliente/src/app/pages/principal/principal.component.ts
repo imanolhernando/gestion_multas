@@ -35,6 +35,11 @@ export class PrincipalComponent implements OnInit {
 listarMultas(){
   console.trace('listarMultas ');
   this.agenteLogeado =  this.autorizacionService.getAgente();
+  if(this.autorizacionService.alert!=null){
+    this.alert = this.autorizacionService.alert;
+    this.autorizacionService.alert = new Alert("");
+  }
+ 
   this.autorizacionService.getMultas( this.agenteLogeado.id).subscribe(
     data=>{
       console.warn('Json listarMultas %o',data);

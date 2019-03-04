@@ -3,7 +3,7 @@
 <main class="container-fluid bg-light">
 <div class="row">
 
-    <app-alert [alert]="alert"></app-alert>
+    
 
   <div class=" col-12">
     <div class="mb-3">
@@ -14,7 +14,7 @@
         </div>
       </div>
       <p *ngIf="((multas | estadoMulta : isActiva) == 0)">No existen multas {{(isActiva)?'activas':'anuladas'}}</p>
-
+      <app-alert [alert]="alert"></app-alert>
       <table *ngIf="((multas | estadoMulta : isActiva) != 0)" id="tablaMulta" class="table col-12" >
           <thead>
               <tr>

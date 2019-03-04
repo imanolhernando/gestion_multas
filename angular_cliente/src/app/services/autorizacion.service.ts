@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Agente } from '../model/agente';
 import { Coche } from '../model/coche';
 import { MultaPost } from '../model/multa-post';
+import { Alert } from '../model/alert';
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +16,9 @@ export class AutorizacionService {
   endpoint ='http://localhost:8080/wsrest/api/';
 
   private _coche: Coche;
+  private _alert: Alert;
+
+  
 
 
   constructor(
@@ -23,8 +27,14 @@ export class AutorizacionService {
     console.trace('AutorizacionService canActivate');
     this._agenteLogeado = new Agente();
     this._coche = new Coche();
+    this.alert =new Alert("");
   }
-
+  public get alert(): Alert {
+    return this._alert;
+  }
+  public set alert(value: Alert) {
+    this._alert = value;
+  }
 
   public get coche(): Coche {
     return this._coche;

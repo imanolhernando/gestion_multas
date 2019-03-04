@@ -4,6 +4,7 @@ export class Alert {
     static PRIMARY = 'primary';
     static SUCCESS = 'success';
     static WARNING = 'warning';
+    static INFO = 'info';
 
     private _mensaje: string;
     private _tipo: string;
