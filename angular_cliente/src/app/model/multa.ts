@@ -25,14 +25,14 @@ export class Multa {
       fecha_baja:Date = null,
       importe:number
       ){
-      this.id = id;
-      this.fecha = fecha;
-      this.matricula = matricula;
-      this.concepto = concepto;
-      this.modelo = modelo;
-      this.kilometraje = kilometraje;
-      this.fecha_baja = fecha_baja;
-      this.importe = importe;
+      this._id = id;
+      this._fecha = fecha;
+      this._matricula = matricula;
+      this._concepto = concepto;
+      this._modelo = modelo;
+      this._kilometraje = kilometraje;
+      this._fecha_baja = fecha_baja;
+      this._importe = importe;
   }
 
     public get id(): number {

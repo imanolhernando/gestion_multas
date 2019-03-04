@@ -53,11 +53,11 @@ export class AutorizacionService {
 
   }
 
-  public saveAgente( agente: any ){
+  public saveAgente( agente: Agente ){
     this.storage.setItem('agente',  JSON.stringify(agente));
   }
 
-  public getAgente(): any{
+  public getAgente(): Agente{
     let agenteString = this.storage.getItem('agente');
     if( agenteString ){
       return JSON.parse(agenteString);

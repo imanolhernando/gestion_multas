@@ -3,14 +3,12 @@ export class Agente {
     private _id: number;
     private _apellido: string;
     private _placa: number;
-    private _password: string;
     private _departamento: string;
 
-    constructor( id:number = -1, apellido:string = "", placa:number = -1, password:string = "", departamento:string = ""){
+    constructor( id:number = -1, apellido:string = "", placa:number = -1, departamento:string = ""){
         this._id = id;
         this._apellido = apellido;
         this._placa = placa;
-        this._password = "ABC";
         this._id = id;
         this._departamento = departamento;
     }
@@ -36,12 +34,7 @@ export class Agente {
         this._placa = value;
     }
 
-    public get password(): string {
-        return this._password;
-    }
-    public set password(value: string) {
-        this._password = value;
-    }
+    
 
     public get departamento(): string {
         return this._departamento;

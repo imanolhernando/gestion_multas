@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
     console.trace('LoginComponent constructor');
     this.crearFormulario();
     this.alert = new Alert('');
-    this.agenteLogeado = new Agente();
   }
 
   ngOnInit() {
@@ -57,7 +56,7 @@ export class LoginComponent implements OnInit {
       data=>{
         console.warn('Json agente %o',data);
         console.info('Login correcto, tenemos permisos');
-        this.autorizacionService.agenteLogeado =  new Agente( data.id, data.apellido, data.placa, data.password, data.departamento);
+        this.autorizacionService.agenteLogeado =  new Agente( data.id, data.apellido, data.placa, data.departamento);
         this.autorizacionService.setLogged(true);
         this.autorizacionService.saveAgente(data);
         this.router.navigate(['/principal']);

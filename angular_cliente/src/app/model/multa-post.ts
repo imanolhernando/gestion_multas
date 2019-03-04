@@ -19,7 +19,7 @@ export class MultaPost {
     concepto:string = "",
     importe:number
     ){
-    this.concepto = concepto;
-    this.importe = importe;
+    this._concepto = concepto;
+    this._importe = importe;
 }
 }

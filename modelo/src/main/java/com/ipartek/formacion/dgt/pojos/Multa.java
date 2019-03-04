@@ -3,6 +3,7 @@ package com.ipartek.formacion.dgt.pojos;
 import java.sql.Date;
 import java.sql.Time;
 
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -13,6 +14,7 @@ public class Multa {
 	private Long id;
 
 	@NotNull(message = "Error")
+	@Max(9999)
 	private Float importe;
 
 	@NotEmpty

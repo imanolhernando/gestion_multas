@@ -1,32 +1,35 @@
 <app-navbar></app-navbar>
 
 <main class="container-fluid  bg-light">
+   
   <div class="row">
       <div class="col-12">
       <div class="mb-3">
       <div class="btn-group ">
           <button [routerLink]="['/principal']" (click)="cambiarEstado(true)"class="btn btn-sm btn-outline-info2">Activas</button>
           <button [routerLink]="['/principal']" (click)="cambiarEstado(false)" class="btn btn-sm btn-outline-info2">Anuladas</button>
-          <a class="btn btn-block btn-danger" [routerLink]="['/multar']">Multar</a>
+          <a class="btn btn-block btn-danger text-white" [routerLink]="['/multar']">Multar</a>
       </div>
       </div>
       </div>
   </div><!--/row-->
     <div class="maxwidth">
     <h2>BUSCAR MATRICULA</h2>
+
    <form class="form" [formGroup]="formularioBuscarMatricula" (submit)="obtenerVehiculo()">
       <div class="form-group">
       <label for="buscar" class="form-text text-muted"> Introduce una matricula para multar</label>
       <input  type="text" [(ngModel)]="process" formControlName="matriculaBuscar" class="form-control" placeholder="3548MKZ" autofocus >
-      </div>
+      <small *ngIf="formularioBuscarMatricula.invalid" id="emailHelp" class="form-text text-muted">
+        Minimo 6, maximo 10 caracteres. </small>  
+    </div>
       <div  class="form-group">
         <button type="submit" [disabled]="formularioBuscarMatricula.invalid" class=" btn btn-block btn-principal  text-white" >Buscar</button>
       </div>
-      <app-alert [alert]="alert"></app-alert>
+      <app-alert *ngIf="expression" [alert]="alert"></app-alert>
     </form>
 
     <div *ngIf="formularioBuscarMatricula.invalid" class="col-12 alert alert-primary">
-      <span>Debe estar entre 6 y 10 caracteres. </span>
       <span> Has introducido: {{ (!process)?'0':process.length}}</span>
     </div></div><!--/maxwidth-->
 

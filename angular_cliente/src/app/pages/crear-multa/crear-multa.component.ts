@@ -43,11 +43,11 @@ export class CrearMultaComponent implements OnInit {
     this.formNuevaMulta = this.formBuilder.group({
       importe: [
                 '',
-                [Validators.required, Validators.min(10), Validators.max(999)]
+                [Validators.required, Validators.min(10), Validators.max(9999)]
               ],
       concepto : [
               '',
-              [Validators.required, Validators.minLength(15), Validators.maxLength(255)]
+              [Validators.required, Validators.minLength(10), Validators.maxLength(255)]
       ]
     });
 

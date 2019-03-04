@@ -3,7 +3,7 @@
 <main class="container-fluid bg-light">
 <div class="row">
 
-
+    <app-alert [alert]="alert"></app-alert>
 
   <div class=" col-12">
     <div class="mb-3">
@@ -13,9 +13,9 @@
           <a class="btn btn-block btn-outline-danger" [routerLink]="['/multar']">Multar</a>
         </div>
       </div>
-      <p *ngIf="(multas | estadoMulta : isActiva) == 0">No existen multas {{(isActiva)?'activas':'anuladas'}}</p>
+      <p *ngIf="((multas | estadoMulta : isActiva) == 0)">No existen multas {{(isActiva)?'activas':'anuladas'}}</p>
 
-      <table *ngIf="(multas | estadoMulta : isActiva) != 0" id="tablaMulta" class="table col-12" >
+      <table *ngIf="((multas | estadoMulta : isActiva) != 0)" id="tablaMulta" class="table col-12" >
           <thead>
               <tr>
                   <th>Fecha</th>

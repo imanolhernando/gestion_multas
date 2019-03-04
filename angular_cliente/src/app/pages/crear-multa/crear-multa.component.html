@@ -23,20 +23,23 @@
     <div class="form-group">
     <label for="importe">Importe</label>
     <input  formControlName="importe"  type="text" placeholder="Introduce un valor numerico valido" value="${importe!=null ? importe : ''}" class="form-control" autofocus>
-    </div>
+    <small *ngIf="formNuevaMulta.invalid" id="emailHelp" class="form-text text-muted">Valor minimo 10, maximo 9999</small>    
+  </div>
 
 
     <div class="form-group">
     <label for="concepto">Concepto</label>
      <br>
     <textarea formControlName="concepto" class="form-control" placeholder="minimo 10 caracteres maximo 255"  id="concepto"  rows="5" >${concepto!=null ? concepto : ''}</textarea>
+    <small *ngIf="formNuevaMulta.invalid" id="emailHelp" class="form-text text-muted">Minimo 10, maximo 255 caracteres</small>
     </div>
 
 
     <div  class="form-group">
-    <button type="submit" class="btn btn-principal  btn-block">MULTAR</button>
+    <button  [disabled]="formNuevaMulta.invalid" type="submit" class="btn btn-principal  btn-block">MULTAR</button>
     </div>
 
   </form>
+
 </div><!--/maxwitdt-->
 </main>

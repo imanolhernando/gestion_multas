@@ -3,6 +3,7 @@ import { AutorizacionService } from 'src/app/services/autorizacion.service';
 import { Router } from '@angular/router';
 import { Multa } from 'src/app/model/multa';
 import { Agente } from 'src/app/model/agente';
+import { Alert } from 'src/app/model/alert';
 
 @Component({
   selector: 'app-principal',
@@ -14,6 +15,7 @@ export class PrincipalComponent implements OnInit {
   private agenteLogeado: Agente;
   private multas : Multa[];
   isActiva: boolean;
+  alert: Alert;
   
 
   constructor(
@@ -21,6 +23,8 @@ export class PrincipalComponent implements OnInit {
     private router: Router) {
       this.isActiva = true;
       this.agenteLogeado = new Agente();
+      this.alert = new Alert('');
+      this.multas = [];
      }
 
   ngOnInit() {
