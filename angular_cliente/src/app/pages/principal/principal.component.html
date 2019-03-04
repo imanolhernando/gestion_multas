@@ -15,10 +15,11 @@
       </div>
       <p *ngIf="(multas | estadoMulta : isActiva) == 0">No existen multas {{(isActiva)?'activas':'anuladas'}}</p>
 
-      <table id="tablaMulta" class="table col-12" *ngIf="(multas | estadoMulta : isActiva) != 0">
+      <table *ngIf="(multas | estadoMulta : isActiva) != 0" id="tablaMulta" class="table col-12" >
           <thead>
               <tr>
                   <th>Fecha</th>
+                  <th *ngIf="!isActiva">Fecha anulacion</th>
                   <th>Matricula</th>
                   <th>Importe</th>
                   <th>Concepto</th>
@@ -30,6 +31,7 @@
           <tbody>
               <tr *ngFor="let m of multas | estadoMulta : isActiva ">
                 <td>{{m.fecha}}</td>
+                <td *ngIf="!isActiva">{{m.fecha_baja}}</td>
                 <td>{{m.matricula}}</td>
                 <td>{{m.importe}}</td>
                 <td>{{m.concepto}}</td>
