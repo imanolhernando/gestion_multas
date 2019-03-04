@@ -30,17 +30,17 @@
           </thead>
           <tbody>
               <tr *ngFor="let m of multas | estadoMulta : isActiva ">
-                <td>{{m.fecha}}</td>
+                <td>{{m.id}}</td>
                 <td *ngIf="!isActiva">{{m.fecha_baja}}</td>
                 <td>{{m.matricula}}</td>
                 <td>{{m.importe}}</td>
                 <td>{{m.concepto}}</td>
                 <td>{{m.modelo}}</td>
                 <td>{{m.kilometraje}}</td>
-                <td><button class="btn btn-block {{(isActiva)?'btn-outline-danger':'btn-outline-warning'}}">{{(isActiva)?'Anular':'Activar'}}</button></td>
+                <td><button (click)="alterarEstadoMulta(true,m.id)" class="btn btn-block {{(isActiva)?'btn-outline-danger':'btn-outline-warning'}}">{{(isActiva)?'Anular':'Activar'}}</button></td>
             </tr>
           </tbody>
-      </table>
+      </table>S
     </div>
 </div>
 </main>

@@ -18,7 +18,7 @@
 
    <form class="form" [formGroup]="formularioBuscarMatricula" (submit)="obtenerVehiculo()">
       <div class="form-group">
-      <label for="buscar" class="form-text text-muted"> Introduce una matricula para multar</label>
+      <label autofocus for="buscar" class="form-text text-muted"> Introduce una matricula para multar</label>
       <input  type="text" [(ngModel)]="process" formControlName="matriculaBuscar" class="form-control" placeholder="3548MKZ" autofocus >
       <small *ngIf="formularioBuscarMatricula.invalid" id="emailHelp" class="form-text text-muted">
         Minimo 6, maximo 10 caracteres. </small>  

@@ -13,16 +13,16 @@
     </div>
    </div>
    <div class="maxwidth">
-  <form [formGroup]="formNuevaMulta" (submit)="nuevaMulta()">
+  <form [formGroup]="formNuevaMulta" (submit)="nuevaMulta()"  class="form">
       <app-alert [alert]="alert"></app-alert>
     <div class="form-group">
     <label for="matricula">Vehiculo seleccionado</label>
-    <input readonly  type="text" value="{{coche.matricula}} - {{coche.modelo}}" class="form-control" >
+    <input readonly  type="text" value="{{coche.matricula}} - {{coche.modelo}}" class="form-control">
     </div>
 
     <div class="form-group">
     <label for="importe">Importe</label>
-    <input  formControlName="importe"  type="text" placeholder="Introduce un valor numerico valido" value="${importe!=null ? importe : ''}" class="form-control" autofocus>
+    <input formControlName="importe"  type="text" placeholder="Introduce un valor numerico valido" value="${importe!=null ? importe : ''}" class="form-control" >
     <small *ngIf="formNuevaMulta.invalid" id="emailHelp" class="form-text text-muted">Valor minimo 10, maximo 9999</small>    
   </div>
 

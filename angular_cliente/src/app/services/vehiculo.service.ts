@@ -8,15 +8,15 @@ import { Agente } from '../model/agente';
 })
 export class VehiculoService {
 
-  private endpoint ='http://localhost:8080/wsrest/api/';
+  private endpoint ='http://localhost:8080/wsrest/api/vehiculo/';
 
   constructor(private httpClient: HttpClient) {
-    console.trace('VehiculoService canActivate');
+    console.trace('VehiculoService constructor');
   }
 
 
   getVehiculoByMatricula(matricula:string): Observable<any>{
-    let url = this.endpoint + `vehiculo/${matricula}`;
+    let url = this.endpoint + `${matricula}`;
     console.trace(`VehiculoService getVehiculoByMatricula url: ${url}`);
     return this.httpClient.get(url);
   }
