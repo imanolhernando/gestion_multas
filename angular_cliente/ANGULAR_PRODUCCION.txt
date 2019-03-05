@@ -1,0 +1,20 @@
+C:\0554\apache-tomcat-8.5.38
+C:\0554\apache-tomcat-8.5.38\bin
+
+startup.bat shutdow.bat
+
+ejecutar en consola startup
+
+http://localhost:8080/
+en esa direccion se ve el servicor
+
+si falla ir a la carpeta log buscar el log de ultima fecha y ver porque ha fallado
+
+C:\0554\apache-tomcat-8.5.38\work\Catalina\localhost
+son los jsp que se compilan, se pueden eliminar .
+
+EN LA CARPETA WEBAPPS
+SE CREA UNA CAREPTA CON EL MISMO NOMBRE QUE LA BASE DEL PROEYCTO DE ANGULAR
+
+Y CON EL SERVIDOR ARRANCADO
+EL PROYECTO ESTA EN PRODUCCION EN ANGULAR
