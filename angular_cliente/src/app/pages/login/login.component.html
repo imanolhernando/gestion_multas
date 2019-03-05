@@ -25,7 +25,7 @@
        </div>
        <input type="password" class="form-control" id="pass" name="pass" placeholder="Pa$$w0rd"  formControlName="pass">
       </div>
-      <small *ngIf="formulario.invalid" id="emailHelp" class="form-text text-muted">Minimo 3 caracteres</small>
+      <small *ngIf="formulario.invalid" id="emailHelp" class="form-text text-muted">Minimo 3 caracteres |  {{texto}}</small>
    </div>
 
      <button class="btn btn-lg  btn-block mb-3 mt-3  btn-principal" type="submit" [disabled]="formulario.invalid">
@@ -33,7 +33,7 @@
      </button>
 
 
-
+    
     </form>
 </div>
 

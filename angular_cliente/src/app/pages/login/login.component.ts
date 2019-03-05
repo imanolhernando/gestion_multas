@@ -4,6 +4,7 @@ import { AutorizacionService } from 'src/app/services/autorizacion.service';
 import { Router } from '@angular/router';
 import { Alert } from 'src/app/model/alert';
 import { Agente } from 'src/app/model/agente';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -14,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   formulario: FormGroup;
   alert: Alert;
+  texto:string = environment.texto;
 
   private agenteLogeado: Agente;
 
