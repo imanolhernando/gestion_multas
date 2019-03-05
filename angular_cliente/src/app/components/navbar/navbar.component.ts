@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  private agenteLogeado: Agente;
+   agenteLogeado: Agente;
 
   constructor(
     private autorizacionService: AutorizacionService,

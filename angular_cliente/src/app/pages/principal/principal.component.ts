@@ -13,8 +13,8 @@ import { MultaService } from 'src/app/services/multa.service';
 })
 export class PrincipalComponent implements OnInit {
 
-  private agenteLogeado: Agente;
-  private multas : Multa[];
+   agenteLogeado: Agente;
+   multas : Multa[];
   isActiva: boolean;
   alert: Alert;
 

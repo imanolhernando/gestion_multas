@@ -19,6 +19,7 @@ export class MultarComponent implements OnInit {
   formularioBuscarMatricula: FormGroup;
   alert: Alert;
   coche:Coche;
+  process:string;
 
   constructor(
      private vehiculoService: VehiculoService,

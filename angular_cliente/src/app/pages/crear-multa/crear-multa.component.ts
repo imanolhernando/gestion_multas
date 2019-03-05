@@ -15,10 +15,10 @@ import { Agente } from 'src/app/model/agente';
 })
 export class CrearMultaComponent implements OnInit {
 
-  private coche: Coche;
+   coche: Coche;
   formNuevaMulta: FormGroup;
   alert: Alert;
-  private agenteLogeado: Agente;
+   agenteLogeado: Agente;
 
   constructor(
     private vehiculoService: VehiculoService,
