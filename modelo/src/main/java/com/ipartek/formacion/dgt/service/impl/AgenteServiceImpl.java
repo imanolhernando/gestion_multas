@@ -63,6 +63,7 @@ public class AgenteServiceImpl implements AgenteService {
 		Coche coche = new Coche();
 
 		try {
+			if(importe<0)
 			coche.setId((long) idCoche);
 			agente.setId((long) idAgente);
 			multa.setConcepto(concepto);

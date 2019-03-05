@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.Time;
 
 import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -15,6 +16,7 @@ public class Multa {
 
 	@NotNull(message = "Error")
 	@Max(9999)
+	@Min(10)
 	private Float importe;
 
 	@NotEmpty
