@@ -60,15 +60,17 @@ public class AgenteServiceImpl implements AgenteService {
 		boolean isCreado = false;
 		Agente agente = new Agente();
 		Multa multa = new Multa();
-		Coche coche = new Coche();
-
+		Coche coche =null;
+		coche = new Coche();
 		try {
-			if(importe<0)
+			if(importe>0) {
+				
 			coche.setId((long) idCoche);
 			agente.setId((long) idAgente);
 			multa.setConcepto(concepto);
 			multa.setImporte(importe);
 			multa.setCoche(coche);
+			}
 		} catch (Exception e) {
 			throw new MultaException(AgenteException.EXCEPTION_NUMBER);
 

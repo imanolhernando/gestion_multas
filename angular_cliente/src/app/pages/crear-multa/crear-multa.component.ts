@@ -7,6 +7,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MultaPost } from 'src/app/model/multa-post';
 import { Alert } from 'src/app/model/alert';
 import { Agente } from 'src/app/model/agente';
+import { AgenteService } from 'src/app/services/agente.service';
 
 @Component({
   selector: 'app-listar-multas',
@@ -23,10 +24,11 @@ export class CrearMultaComponent implements OnInit {
   constructor(
     private vehiculoService: VehiculoService,
     private autorizacionService: AutorizacionService,
+    private agenteService: AgenteService,
     private router: Router,
     private formBuilder: FormBuilder
     ) {
-    this.coche =  this.autorizacionService.coche;
+    this.coche =  this.agenteService.coche;
     if(this.coche.id === -1){
       this.router.navigate(['/multar']);
     }
@@ -59,10 +61,10 @@ export class CrearMultaComponent implements OnInit {
 
     let multa = new MultaPost(this.formNuevaMulta.value.concepto, this.formNuevaMulta.value.importe);
     this.agenteLogeado =  this.autorizacionService.getAgente();
-    this.autorizacionService.postMulta(multa, this.agenteLogeado.id).subscribe(
+    this.agenteService.postMulta(multa, this.agenteLogeado.id).subscribe(
       result => {
         console.log('CrearMultaComponent new %o', result);
-        this.autorizacionService.alert = new Alert('Multa creada con exito',Alert.INFO);
+        this.agenteService.alert = new Alert('Multa creada con exito',Alert.INFO);
        this.router.navigate(['/principal']);
       },
       error => {

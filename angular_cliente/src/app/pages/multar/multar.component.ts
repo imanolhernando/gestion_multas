@@ -4,7 +4,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { VehiculoService } from 'src/app/services/vehiculo.service';
 import { Alert } from 'src/app/model/alert';
 import { Coche } from 'src/app/model/coche';
-import { AutorizacionService } from 'src/app/services/autorizacion.service';
+import { AgenteService } from 'src/app/services/agente.service';
 
 
 
@@ -24,11 +24,11 @@ export class MultarComponent implements OnInit {
   constructor(
      private vehiculoService: VehiculoService,
      private formBuilder: FormBuilder,
-    private router: Router,
-    private autorizacionService: AutorizacionService) {
+     private agenteService: AgenteService,
+    private router: Router) {
       this.crearFormularioMatricula();
       this.alert = new Alert('');
-      
+
   }
 
   ngOnInit() {
@@ -40,7 +40,7 @@ export class MultarComponent implements OnInit {
     this.formularioBuscarMatricula = this.formBuilder.group({
       matriculaBuscar: [
                 '',
-                [Validators.required, Validators.minLength(6), Validators.maxLength(10)]
+                [Validators.required, Validators.minLength(6), Validators.maxLength(10), Validators]
               ]
     });
 
@@ -54,7 +54,7 @@ export class MultarComponent implements OnInit {
       data=>{
         console.warn('Json obtenerVehiculo %o',data);
        this.coche = data;
-       this.autorizacionService.coche = this.coche;
+       this.agenteService.coche = this.coche;
        this.router.navigate(['/crear-multa']);
 
       },error=>{

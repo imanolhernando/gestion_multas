@@ -5,6 +5,7 @@ import { Multa } from 'src/app/model/multa';
 import { Agente } from 'src/app/model/agente';
 import { Alert } from 'src/app/model/alert';
 import { MultaService } from 'src/app/services/multa.service';
+import { AgenteService } from 'src/app/services/agente.service';
 
 @Component({
   selector: 'app-principal',
@@ -21,6 +22,7 @@ export class PrincipalComponent implements OnInit {
 
   constructor(
     private autorizacionService: AutorizacionService,
+    private agenteService: AgenteService,
     private multaService: MultaService,
     private router: Router) {
       this.isActiva = true;
@@ -37,12 +39,12 @@ export class PrincipalComponent implements OnInit {
 listarMultas(){
   console.trace('listarMultas ');
   this.agenteLogeado =  this.autorizacionService.getAgente();
-  if(this.autorizacionService.alert!=null){
-    this.alert = this.autorizacionService.alert;
-    this.autorizacionService.alert = new Alert("");
+  if(this.agenteService.alert!=null){
+    this.alert = this.agenteService.alert;
+    this.agenteService.alert = new Alert("");
   }
 
-  this.autorizacionService.getMultas( this.agenteLogeado.id).subscribe(
+  this.agenteService.getMultas( this.agenteLogeado.id).subscribe(
     data=>{
       console.warn('Json listarMultas %o',data);
       this.router.navigate(['/principal']);
