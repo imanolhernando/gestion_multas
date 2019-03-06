@@ -10,7 +10,7 @@ import { Alert } from '../model/alert';
 })
 export class AgenteService {
 
- private endpoint ='http://localhost:8080/wsrest/api/';
+ private endpoint ='http://localhost:8080/imanol_wsrest/api/';
  private _coche: Coche;
  private _alert: Alert;
 

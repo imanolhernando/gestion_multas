@@ -11,7 +11,7 @@ export class AutorizacionService {
 
   private storage = window.sessionStorage;
   private _agenteLogeado: Agente;
-  endpoint ='http://localhost:8080/wsrest/api/';
+  endpoint ='http://localhost:8080/imanol_wsrest/api/';
   private _alert: Alert;
 
 

@@ -8,7 +8,7 @@ import { Agente } from '../model/agente';
 })
 export class VehiculoService {
 
-  private endpoint ='http://localhost:8080/wsrest/api/vehiculo/';
+  private endpoint ='http://localhost:8080/imanol_wsrest/api/vehiculo/';
 
   constructor(private httpClient: HttpClient) {
     console.trace('VehiculoService constructor');

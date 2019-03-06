@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class MultaService {
 
-  private endpoint ='http://localhost:8080/wsrest/api/multa/';
+  private endpoint ='http://localhost:8080/imanol_wsrest/api/multa/';
 
   constructor(private httpClient: HttpClient) {
     console.trace('MultaService constructor');
