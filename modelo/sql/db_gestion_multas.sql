@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `imanol_dgt` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `imanol_dgt`;
--- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.13, for Win64 (x86_64)
 --
 -- Host: localhost    Database: imanol_dgt
 -- ------------------------------------------------------
--- Server version	8.0.12
+-- Server version	8.0.13
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -42,7 +42,7 @@ CREATE TABLE `agente` (
 
 LOCK TABLES `agente` WRITE;
 /*!40000 ALTER TABLE `agente` DISABLE KEYS */;
-INSERT INTO `agente` VALUES (1,'majonei',111,37,'123456'),(2,'jony walker',222,36,'123456'),(3,'monk',333,38,'123456'),(4,'takelberri',444,39,'123456'),(5,'tontini',555,39,'123456');
+INSERT INTO `agente` VALUES (1,'andrea lemaire',111,1,'123456'),(2,'sergio craig',222,2,'123456'),(3,'arttu salo',333,3,'123456'),(4,'maiara farias',444,1,'123456');
 /*!40000 ALTER TABLE `agente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -69,7 +69,7 @@ CREATE TABLE `coche` (
 
 LOCK TABLES `coche` WRITE;
 /*!40000 ALTER TABLE `coche` DISABLE KEYS */;
-INSERT INTO `coche` VALUES (1,'3548MKZ','toyota yaris',500),(2,'9605EFH','fiat multipla',800),(3,'5674MBD','GTR',1800),(4,'BI0020AZ','flagoneta',47500),(5,'1234567','bmw 325',192586);
+INSERT INTO `coche` VALUES (1,'3548MKZ','audi',500),(2,'9605EFH','ford',800),(3,'5674MBD','mercedes',1800),(4,'BI0020AZ','opel',47500),(5,'1234567','bmw',192586);
 /*!40000 ALTER TABLE `coche` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -94,7 +94,7 @@ CREATE TABLE `departamento` (
 
 LOCK TABLES `departamento` WRITE;
 /*!40000 ALTER TABLE `departamento` DISABLE KEYS */;
-INSERT INTO `departamento` VALUES (36,'Alcoholemia'),(38,'Fealdad'),(33,'Ingeniería'),(35,'Mercadeo'),(39,'Oficinistas'),(34,'Producción'),(37,'Velocidad'),(31,'Ventas');
+INSERT INTO `departamento` VALUES (3,'alcoholemia'),(2,'carretara'),(4,'fraude'),(1,'patrulla');
 /*!40000 ALTER TABLE `departamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,7 +119,7 @@ CREATE TABLE `multa` (
   KEY `fk_agente_idx` (`id_agente`),
   CONSTRAINT `fk_agente_has_multa` FOREIGN KEY (`id_agente`) REFERENCES `agente` (`id`),
   CONSTRAINT `fk_coche_has_multa` FOREIGN KEY (`id_coche`) REFERENCES `coche` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=92 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=104 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,7 +128,7 @@ CREATE TABLE `multa` (
 
 LOCK TABLES `multa` WRITE;
 /*!40000 ALTER TABLE `multa` DISABLE KEYS */;
-INSERT INTO `multa` VALUES (15,1,2,500,'arturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2019-01-01 00:10:50','2019-03-06 10:07:45',NULL),(16,1,2,200,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-12-19 01:11:37','2018-12-19 01:11:37','2019-01-19 19:59:41'),(17,1,2,500,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-11-19 02:14:17','2018-11-19 02:14:17','2019-03-04 14:19:47'),(18,1,2,300,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 03:14:17','2018-06-19 03:14:17','2019-03-06 10:07:38'),(19,1,2,400,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2017-01-19 04:14:17','2017-01-19 04:14:17','2019-03-06 10:07:39'),(20,2,2,100,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2016-01-19 05:14:17','2016-01-19 05:14:17','2019-03-06 10:07:40'),(21,2,2,200,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-03-19 06:14:17','2018-03-19 06:14:17','2018-03-23 06:14:17'),(22,2,2,300,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2019-01-11 07:14:17','2019-03-06 10:07:44',NULL),(23,2,2,400,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17','2019-03-04 14:21:00'),(24,3,2,50,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2019-03-04 13:25:14','2019-03-04 13:34:05'),(25,3,2,100,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17','2019-03-05 09:55:45'),(26,3,2,150,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17','2019-03-05 09:55:49'),(27,3,2,200,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17','2019-03-06 10:07:37'),(28,4,2,25,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17','2019-03-06 10:07:38'),(29,4,2,100,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2018-06-19 18:14:17','2018-06-19 18:14:17','2019-03-06 10:07:38'),(30,4,2,300,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2016-12-19 19:14:17','2016-12-19 19:14:17','2019-03-06 10:07:39'),(31,4,2,650,'Parturient habitant maecenas sodales vulputate ornare torquent sem magnis massa placerat, egestas euismod scelerisque nam sociosqu enim montes molestie in.','2019-01-06 22:14:17','2019-03-06 10:07:44',NULL),(65,5,2,1234,'asdfghjklddddd','2019-03-04 14:10:40','2019-03-06 10:07:44',NULL),(66,1,1,-50,'Lorem Ipsum....','2019-03-04 14:14:43','2019-03-05 10:45:14','2019-03-05 10:48:15'),(69,1,1,-50,'Lorem Ipsum....','2019-03-04 14:15:48','2019-03-05 10:45:14','2019-03-05 10:48:14'),(72,5,2,1234,'qwertysdfghgergh','2019-03-05 09:56:08','2019-03-06 10:07:43',NULL),(73,5,1,15,'qwsdfgw v eag w ass ','2019-03-05 10:48:11','2019-03-05 10:48:11','2019-03-05 10:48:13'),(74,1,1,-50,'Lorem Ipsum....','2019-03-05 12:17:50','2019-03-05 12:17:50',NULL),(77,1,1,-50,'Lorem Ipsum....','2019-03-05 12:21:32','2019-03-05 12:21:32',NULL),(80,1,1,-50,'Lorem Ipsum....','2019-03-05 12:22:38','2019-03-05 12:22:38',NULL),(83,1,1,-50,'Lorem Ipsum....','2019-03-05 12:23:18','2019-03-05 12:23:18',NULL),(90,5,2,1234,'12werthgfds sdf','2019-03-06 09:59:17','2019-03-06 10:07:43',NULL),(91,5,2,1231,'asdf asdfg asdfg','2019-03-06 10:07:32','2019-03-06 10:07:43',NULL);
+INSERT INTO `multa` VALUES (1,1,1,165.45,'Exceso velocidad ','2019-03-06 16:02:57','2019-03-06 16:02:57',NULL),(2,2,1,190,'Control alcoholemia positivo','2019-03-06 16:02:57','2019-03-06 16:02:57',NULL),(3,3,2,749.95,'Control velocidad y drogas positivo','2019-03-06 16:02:57','2019-03-06 16:02:57',NULL),(4,4,2,399,'Control alcoholemia positivo','2019-03-06 16:02:57','2019-03-06 16:02:57',NULL),(5,5,2,150,'Control velocidad y drogas positivo','2019-03-06 16:02:57','2019-03-06 16:02:57',NULL),(6,1,2,75,'Control velocidad y drogas positivo','2019-03-06 16:02:57','2019-03-06 16:02:57','2019-03-06 16:16:02'),(7,2,2,325,'Control alcoholemia positivo','2019-03-06 16:02:57','2019-03-06 16:02:57','2019-03-06 16:16:02'),(8,3,3,745.9,'Control velocidad y drogas positivo','2019-03-06 16:02:57','2019-03-06 16:16:20',NULL),(9,4,3,123,'Exceso velocidad ','2019-03-06 16:02:57','2019-03-06 16:02:57','2019-03-06 16:16:16'),(10,5,3,543,'Exceso velocidad ','2019-03-06 16:02:57','2019-03-06 16:02:57',NULL);
 /*!40000 ALTER TABLE `multa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -454,4 +454,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-06 11:55:04
+-- Dump completed on 2019-03-06 16:16:51
