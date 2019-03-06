@@ -4,16 +4,16 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.ipartek.formacion.dgt</groupId>
-	<artifactId>imanol_wsrest</artifactId>
+	<artifactId>imanol-wsrest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>imanol_wsrest</name>
+	<name>imanol-wsrest</name>
 	<description>API REST con Spring 4</description>
 	
 	<!-- variables comunes para usar en el POM -->
 	<properties>
-		<app.name>imanol_wsrest</app.name>
+		<app.name>imanol-wsrest</app.name>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java-version>1.8</java-version>
 		<junit.version>4.12</junit.version>
