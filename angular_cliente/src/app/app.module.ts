@@ -15,6 +15,8 @@ import { AlertComponent } from './components/alert/alert.component';
 import { HttpClientModule } from '@angular/common/http';
 import { EstadoMultaPipe } from './pipes/estado-multa.pipe';
 import { MultarComponent } from './pages/multar/multar.component';
+import { BuscarPipe } from './pipes/buscar.pipe';
+import { ObjetivosComponent } from './pages/objetivos/objetivos.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { MultarComponent } from './pages/multar/multar.component';
     CrearMultaComponent,
     AlertComponent,
     EstadoMultaPipe,
-    MultarComponent
+    MultarComponent,
+    BuscarPipe,
+    ObjetivosComponent
   ],
   imports: [
     BrowserModule,

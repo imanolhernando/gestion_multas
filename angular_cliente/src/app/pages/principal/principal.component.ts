@@ -18,6 +18,7 @@ export class PrincipalComponent implements OnInit {
    multas : Multa[];
   isActiva: boolean;
   alert: Alert;
+  searchText: string;
 
 
   constructor(
@@ -29,6 +30,7 @@ export class PrincipalComponent implements OnInit {
       this.agenteLogeado = new Agente();
       this.alert = new Alert('');
       this.multas = [];
+      this.searchText = '';
      }
 
   ngOnInit() {
