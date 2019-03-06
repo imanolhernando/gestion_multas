@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Coche } from 'src/app/model/coche';
-import { VehiculoService } from 'src/app/services/vehiculo.service';
 import { AutorizacionService } from 'src/app/services/autorizacion.service';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -22,7 +21,6 @@ export class CrearMultaComponent implements OnInit {
    agenteLogeado: Agente;
 
   constructor(
-    private vehiculoService: VehiculoService,
     private autorizacionService: AutorizacionService,
     private agenteService: AgenteService,
     private router: Router,

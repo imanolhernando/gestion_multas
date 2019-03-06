@@ -17,7 +17,6 @@ export class LoginComponent implements OnInit {
   alert: Alert;
   texto:string = environment.texto;
 
-  private agenteLogeado: Agente;
 
   constructor(
     private autorizacionService: AutorizacionService,
