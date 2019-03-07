@@ -18,7 +18,7 @@ public class CocheDAO {
 
 	private final static Logger LOG = Logger.getLogger(AgenteDAO.class);
 
-	private static final String SQL_GET_MATRICULA = "call dgt.coche_get_matricula(?);";
+	private static final String SQL_GET_MATRICULA = "{call coche_get_matricula(?)}";
 	
 
 	private CocheDAO() {

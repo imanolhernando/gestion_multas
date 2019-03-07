@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class VehiculoService {
 
-  private endpoint ='http://localhost:8080/imanol-wsrest/api/vehiculo/';
+  private endpoint ='http://192.168.0.12:8080/imanol-wsrest/api/vehiculo/';
 
   constructor(private httpClient: HttpClient) {
     console.trace('VehiculoService constructor');
