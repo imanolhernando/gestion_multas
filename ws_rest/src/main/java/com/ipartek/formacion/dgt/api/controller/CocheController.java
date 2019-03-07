@@ -48,7 +48,7 @@ public class CocheController {
 				response = new ResponseEntity<Coche>(HttpStatus.NOT_FOUND);
 			}
 		} catch (Exception e) {
-			LOG.debug(e);
+			LOG.fatal(e);
 		}
 		return response;
 	}

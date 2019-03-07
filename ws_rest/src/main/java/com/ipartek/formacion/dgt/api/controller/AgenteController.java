@@ -53,7 +53,7 @@ public class AgenteController {
 				response = new ResponseEntity<ArrayList<Multa>>(HttpStatus.NOT_FOUND);
 			}
 		} catch (Exception e) {
-			LOG.debug(e);
+			LOG.fatal(e);
 		}
 		return response;
 	}
@@ -66,8 +66,7 @@ public class AgenteController {
 	@RequestMapping(value = { "{idAgente}/multa" }, method = RequestMethod.POST)
 	public ResponseEntity<MultaPost> multar(@PathVariable int idAgente, @RequestBody MultaPost multaPost) {
 
-		ResponseEntity<MultaPost> response = new ResponseEntity<MultaPost>(HttpStatus.INTERNAL_SERVER_ERROR);
-
+		ResponseEntity<MultaPost> response = new ResponseEntity<MultaPost>(HttpStatus.BAD_REQUEST);
 		try {
 			long idVehiculoLong = multaPost.getCoche();
 			int idVehiculo = (int) idVehiculoLong;
@@ -79,8 +78,9 @@ public class AgenteController {
 			} 
 
 		} catch (Exception e) {
-			LOG.debug(e);
-			response = new ResponseEntity<MultaPost>(HttpStatus.BAD_REQUEST);
+			LOG.fatal(e);
+			response = new ResponseEntity<MultaPost>(HttpStatus.INTERNAL_SERVER_ERROR);
+			
 		}
 		return response;
 	}
@@ -100,7 +100,7 @@ public class AgenteController {
 				response = new ResponseEntity<Agente>(HttpStatus.FORBIDDEN);
 			}
 		} catch (Exception e) {
-			LOG.debug(e);
+			LOG.fatal(e);
 		}
 		return response;
 	}

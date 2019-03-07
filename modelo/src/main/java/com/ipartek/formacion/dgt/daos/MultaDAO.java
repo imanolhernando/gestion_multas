@@ -61,7 +61,7 @@ public class MultaDAO {
 				// conseguir id generado
 				multa.setId( cs.getLong(5) );	
 				resul = true;
-				LOG.debug("multa registrada en la base de datos");
+				LOG.info("NUEVA MULTA INSERTADA[ AGENTE: "+agente.getId()+"] MULTA"+ multa);
 			}
 			
 		}
@@ -88,6 +88,7 @@ public class MultaDAO {
 				resul = true;
 			}
 		}
+		LOG.info("multa anulada: "+m);
 		return resul;
 
 	}
@@ -113,6 +114,7 @@ public class MultaDAO {
 				resul = true;
 			}
 		}
+		LOG.info("multa activada: "+m);
 		return resul;
 
 	}

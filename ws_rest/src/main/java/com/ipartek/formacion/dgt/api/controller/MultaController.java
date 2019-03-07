@@ -48,7 +48,7 @@ public class MultaController {
 				response = new ResponseEntity<Boolean>(HttpStatus.NOT_FOUND);
 			}
 		} catch (Exception e) {
-			LOG.debug(e);
+			LOG.fatal(e);
 		}
 		return response;
 	}
@@ -68,7 +68,7 @@ public ResponseEntity<Boolean> anular(@PathVariable long idMulta) {
 			response = new ResponseEntity<Boolean>(HttpStatus.NOT_FOUND);
 		}
 	} catch (Exception e) {
-		LOG.debug(e);
+		LOG.fatal(e);
 	}
 	return response;
 }

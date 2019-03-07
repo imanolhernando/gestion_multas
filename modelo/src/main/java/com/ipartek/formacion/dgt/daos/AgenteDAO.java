@@ -57,6 +57,7 @@ public class AgenteDAO {
 	
 	
 	public ArrayList<Multa> getAllMultasByAgenteId(long id) {
+		LOG.trace("Listado multa");
 		ArrayList<Multa> multas = new ArrayList<Multa>();
 		String sql = SQL_ALL_MULTAS_ID_AGENTE;
 		Multa multa = null;
@@ -89,7 +90,7 @@ public class AgenteDAO {
 		} catch (Exception e) {
 			LOG.fatal("getMultas:---> " + e);
 		}
-		LOG.debug("Listado multas OK");
+		LOG.info("getAllMultasByAgenteId OK");
 		return multas;
 	}
 	
@@ -116,7 +117,7 @@ public class AgenteDAO {
 		} catch (Exception e) {
 			LOG.fatal("getById:---> " + e);
 		}
-		LOG.debug("Agente_id encontrado");
+		LOG.info("Agente_id encontrado"+usuario);
 		return usuario;
 
 	}
@@ -124,6 +125,7 @@ public class AgenteDAO {
 	// metodo getMultas para incluir todas las multas ACTIVAS como elementos de un
 	// arraylist
 	public ArrayList<Multa> getMultas(long id) {
+		
 		ArrayList<Multa> multas = new ArrayList<Multa>();
 		String sql = SQL_ALL_MULTAS;
 		Multa multa = null;
@@ -155,7 +157,7 @@ public class AgenteDAO {
 		} catch (Exception e) {
 			LOG.fatal("getMultas:---> " + e);
 		}
-		LOG.debug("Listado multas OK");
+		
 		return multas;
 	}
 
@@ -222,8 +224,9 @@ public class AgenteDAO {
 				}
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOG.fatal(e);
 		}
+		LOG.info("agente encontrado en la base de datos");
 		return usuario;
 	}
 
