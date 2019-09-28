@@ -1,4 +1,4 @@
-# MULTOMETRO APP PARA LA GESTIÓN DE MULTAS
+# Aplicación web PARA LA GESTIÓN DE MULTAS
 
 Conjunto de aplicaciones para gestionar vehiculos agentes y multas
 
